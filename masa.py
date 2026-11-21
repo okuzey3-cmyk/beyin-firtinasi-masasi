@@ -40,18 +40,27 @@ def log(*a):
 # HTTP yardımcıları
 # --------------------------------------------------------------------------
 
-def http_json(url, payload=None, headers=None, timeout=120):
+def http_json(url, payload=None, headers=None, timeout=60):
     data = json.dumps(payload).encode() if payload is not None else None
     req = urllib.request.Request(url, data=data, method="POST" if data else "GET")
     req.add_header("Content-Type", "application/json")
+    req.add_header("Accept", "application/json")
     req.add_header("User-Agent", "beyin-firtinasi-masasi")
     for k, v in (headers or {}).items():
         req.add_header(k, v)
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode())
+        raw = r.read()
+        enc = r.headers.get("Content-Encoding", "")
+        if enc == "gzip":
+            import gzip
+            raw = gzip.decompress(raw)
+        try:
+            return json.loads(raw.decode("utf-8", errors="replace"))
+        except json.JSONDecodeError:
+            raise RuntimeError(f"JSON değil (HTTP {r.status}, {r.headers.get('Content-Type')}): {raw[:200]!r}")
 
 
-def with_retry(fn, tries=2, wait=20):
+def with_retry(fn, tries=2, wait=8):
     last = None
     for i in range(tries):
         try:
@@ -80,14 +89,20 @@ def clean(text):
 # Sağlayıcılar
 # --------------------------------------------------------------------------
 
+_gem_models = None
+
+
 def gemini_models():
     """Ücretsiz katmanda çalışan flash modellerini sırayla döndürür."""
+    global _gem_models
+    if _gem_models is not None:
+        return _gem_models
     prefs = ["gemini-flash-latest", "gemini-flash-lite-latest"]
     found = []
     try:
         res = http_json(
             "https://generativelanguage.googleapis.com/v1beta/models?pageSize=200&key="
-            + urllib.parse.quote(GEMINI_KEY))
+            + urllib.parse.quote(GEMINI_KEY), timeout=20)
         for m in res.get("models", []):
             name = m.get("name", "").replace("models/", "")
             meth = m.get("supportedGenerationMethods", [])
@@ -102,7 +117,8 @@ def gemini_models():
     for n in prefs + stable + preview:
         if n not in out:
             out.append(n)
-    return out
+    _gem_models = out[:4]
+    return _gem_models
 
 
 def ask_gemini(system, messages):
@@ -115,6 +131,7 @@ def ask_gemini(system, messages):
                "generationConfig": {"temperature": 0.9}}
     last = None
     for model in gemini_models():
+        log(f"  -> Gemini {model} deneniyor")
         try:
             url = (f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key="
                    + urllib.parse.quote(GEMINI_KEY))
@@ -137,7 +154,7 @@ def gh_catalog():
     if _catalog is None:
         try:
             res = http_json("https://models.github.ai/catalog/models",
-                            headers={"Authorization": f"Bearer {GH_TOKEN}"})
+                            headers={"Authorization": f"Bearer {GH_TOKEN}"}, timeout=20)
             _catalog = [m.get("id", "") for m in res]
         except Exception as e:
             log("GitHub Models kataloğu alınamadı:", e)
@@ -148,12 +165,13 @@ def gh_catalog():
 def ask_github(system, messages, prefs, prefix):
     if not GH_TOKEN:
         raise RuntimeError("GITHUB_TOKEN yok")
-    candidates = list(prefs) + [m for m in gh_catalog() if m.startswith(prefix)]
+    candidates = (list(prefs) + [m for m in gh_catalog() if m.startswith(prefix)])[:6]
     seen, last = set(), None
     for model in candidates:
         if model in seen:
             continue
         seen.add(model)
+        log(f"  -> GitHub {model} deneniyor")
         payload = {"model": model,
                    "messages": [{"role": "system", "content": system}] + messages}
         try:
@@ -269,9 +287,13 @@ def transcript_text(turns):
     return "\n\n".join(f"{t['ad']} ({t['rol']}): {t['metin']}" for t in turns)
 
 
+DUSEN = set()  # bu sabah hiç cevap veremeyen koltuklar
+
+
 def speak(seat_key, system, messages):
     """Koltuk sahibine sorar; o koltuk düşerse yedeğe geçer."""
     order = [seat_key] + [k for k in ("gpt", "deepseek", "gemini") if k != seat_key]
+    order = [k for k in order if k not in DUSEN] or order
     last = None
     for k in order:
         try:
@@ -279,6 +301,7 @@ def speak(seat_key, system, messages):
             return text, model, (k != seat_key)
         except Exception as e:
             last = e
+            DUSEN.add(k)
             log(f"{k} koltuğu cevap veremedi:", e)
     raise RuntimeError(f"Masada kimse cevap veremedi: {last}")
 

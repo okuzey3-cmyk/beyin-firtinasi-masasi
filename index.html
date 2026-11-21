@@ -142,7 +142,7 @@ function render(day, index){
   const msgs=t.map((m,i)=>{
     const s=SEAT[m.kim]||SEAT.gemini;
     return `<div class="msg ${i>=SHOW?'hidden':''}"><div class="av" style="background:${s.c}">${s.h}</div>
-      <div><div class="who"><b>${esc(m.ad)}</b> <span>· ${esc(m.rol)}</span></div>
+      <div><div class="who"><b>${esc(m.ad)}</b> <span>· ${esc(m.rol)}${m.yedek?' · yedek oyuncu konuştu':''}</span></div>
       <div class="bubble">${esc(m.metin)}</div></div></div>`;
   }).join('');
   const arc=(index.gunler||[]).map(g=>{const d=parse(g.tarih);return `
