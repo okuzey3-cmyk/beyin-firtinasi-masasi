@@ -1,0 +1,83 @@
+{
+  "tarih": "2026-11-22",
+  "olusturma": "2026-11-22T00:09+03:00",
+  "karar": {
+    "baslik": "Emlakçılara Uzaktan Reels Kurgu Hizmeti",
+    "tek_cumle": "Emlakçıların gündüz çektiği ham video kayıtlarını akşamları hazır şablonlarla altyazılı ve müzikli Reels ilanlarına dönüştürme modeli.",
+    "nasil_para_kazanir": "İlan başına 250 - 300 TL düzenleme ücreti veya düzenli çalışan emlakçılardan aylık sabit abonelik bedeli alınarak kazanılır.",
+    "kime_satilir": "Sosyal medyadan müşteri çekmek isteyen ancak video kurgulamaya vakti ve becerisi olmayan yerel mahalle emlakçılarına.",
+    "baslangic_sermayesi": "0 - 500 TL",
+    "ilk_adim": "Bu hafta sonu 1-2 yerel emlakçı ziyaret edilerek ücretsiz deneme için ham bir portföy videosu istenmeli ve kurgulanıp teslim edilmeli.",
+    "en_buyuk_risk": "Emlakçıların gönderdiği ham çekimlerin aşırı titrek veya kalitesiz olması nedeniyle şablon kurgunun yetersiz kalması.",
+    "masanin_ortak_noktasi": "Çekim ameleliğini emlakçıya bırakmanın zaman kısıtını çözdüğü ve esnafa önce ücretsiz numune sunarak rüştün ispatlanması gerektiği.",
+    "gerceklik_puani": 8,
+    "puan_gerekcesi": "Sıfır maliyetle hemen başlanabilmesi ve vardiyalı çalışanın boş saatlerine uygun bir uzaktan kurgu modeline dönüşmüş olması.",
+    "karar": "Denemeye değer",
+    "baskan": "Gemini",
+    "baskan_model": "gemini-flash-latest"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Arkadaşlar selam, aklımda sıfır sermayeli çok pratik bir fikir var: Mahallemizdeki yerel emlakçılara telefonla hızlı Reels ve video çekim hizmeti vermek. Vardiya çıkışında yeni portföyleri 15 dakikada çekip hazır şablonlarla düzenleyerek ilan başına 500-750 lira alabiliriz. Çoğu emlakçı video işiyle uğraşmaya vakit bulamıyor ama videolu ilanlar sosyal medyada çok daha hızlı müşteri buluyor.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Kulağa hoş geliyor ama emlakçının cebinden para çıkarmak o kadar kolay değil. Ofisteki sekreter ya da genç eleman bu videoları zaten bedavaya denerken, neden sana portföy başına 750 lira versinler? Ayrıca fabrikada vardiyalı çalışan biri gündüz ışığını nasıl yakalayacak, emlakçı seni boş dairede akşam karanlığında mı bekleyecek?",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    },
+    {
+      "kim": "deepseek",
+      "ad": "DeepSeek",
+      "rol": "Sahadaki esnaf",
+      "metin": "Yatırımcı doğru söylüyor, esnafın huyudur bu; yanındaki çırağa çektirmek varken dışarıya kuruş koklatmaz. Üstelik kış vakti saat beşte hava kararıyor, vardiya çıkışı karanlıkta neyin videosunu çekeceksin? İlla gireceksen, önce mahallenin emlakçısına gidip bir iki ilanı bedava çekeceksin, evi daha hızlı sattırıp rüştünü ispatlamadan kimse sana o 750 lirayı masaya koymaz.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Çok haklısınız, ışık ve saat mevzusu işi bozar. Modeli şöyle revize edelim: Çekimi emlakçı ya da çırağı gündüz telefonla hızlıca yapsın, bana WhatsApp’tan atsın. Ben akşam vardiya sonu telefondaki hazır şablonlarla altyazılı, müzikli profesyonel Reels’a dönüştüreyim. İlk iki videoyu da bedava yapıp satıştaki farkı gösterirsek ilan başı 250-300 liraya hemen ikna olurlar.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Çekim ameleliğini onlara yıkman zaman sorununu çözer ama emlakçının attığı o titrek, kalitesiz videodan şablonla bile zor sonuç alırsın. Yine de 250-300 lira esnafın cebini yakmaz, vardiyana da engel olmaz. Git bu hafta sonu iki emlakçıya ücretsiz dene; dönüşüm alırsa aboneliğe bağlarsın, alamazsa en azından cebinden bir kuruş sermaye çıkmamış olur.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    },
+    {
+      "kim": "deepseek",
+      "ad": "DeepSeek",
+      "rol": "Sahadaki esnaf",
+      "metin": "Yatırımcı doğru der, bu şekliyle işin ayağı yere bastı. Bizim esnafa süslü laf etmeyeceksin; \"Abi sen ham videoyu at, gerisini bana bırak, dükkanın havası değişsin\" diyeceksin. Hafta sonu git iki tanıdık emlakçıya çaylarını iç, numuneyi bedava yap. Tutturursan ayda üç beş videodan cep harçlığını temiz çıkarırsın, kaybedecek bir kuruşun da yok.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    }
+  ],
+  "gundem": [
+    "Ticaret Bakanı Ömer BOLAT, TESKOMB Esnaf Kooperatifleri Delegeler Toplantısı'nda konuştu - T.C. Ticaret Bakanlığı",
+    "Esnafa eski sicil kayıtlarını Ticaret Bakanlığı bilgi sistemine aktarma uyarısı - Anadolu Ajansı",
+    "Ömer Bolat'tan esnafa kredi açıklaması: 25 milyar TL'lik kaynak devreye giriyor - Ekonomim",
+    "Emlakçılar Esnaf Odası Gala Gecesi - Kanal23",
+    "Avrupa Girişim Ekosisteminde 16-20 Kasım Yatırım Özeti - N24",
+    "Moody’s Türkiye’deki Fon Operasyonlarının Ekonomi için Risk Oluşturmadığını Söyledi - Stratejik Düşünce Enstitüsü",
+    "Ekonomi Haberleri ➕➖ 2026 Kasım Enflasyon beklentisi nedir? TCMB anket sonuçlarını paylaştı: Enflasyonda cari ay, 1 ay ve 2 ay sonraki tahmin kaç? - Uzmanpara",
+    "DEVA Partisi heyeti Ataşehir’de esnaf ve derneklerle buluştu - Ataşehir Haber",
+    "ANTALYA’DA ESNAF ZİRVESİ: ALİ RIZA ETİ ÖNEMLİ BULUŞMAYA KATILDI - Tekirdağ Yeni Haber Gazetesi",
+    "AK Parti Heyetinden Düziçi'nde Esnaf Ziyareti - Akdeniz Gazetesi",
+    "Turan Kurnaz’dan Ankara’da Esnaf ve Sanatkârlar İçin Önemli Temaslar - Elazığ Son Haber",
+    "Esnafa kredi musluğu açılıyor: Hem yeni kaynak hem masrafsız kredi adımı - CNBC-e"
+  ]
+}
