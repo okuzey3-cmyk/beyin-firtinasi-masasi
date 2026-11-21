@@ -1,0 +1,83 @@
+{
+  "tarih": "2026-11-21",
+  "olusturma": "2026-11-22T00:05+03:00",
+  "karar": {
+    "baslik": "Esnafa Yerinde Dijital Sicil Danışmanlığı",
+    "tek_cumle": "Zorunlu sicil güncellemelerini yapmakta zorlanan geleneksel esnafa, dükkânında rehberlik ederek dijital veri girişini tamamlama hizmeti.",
+    "nasil_para_kazanir": "Esnafın kendi cihazı üzerinden yapılan her başarılı sicil ve evrak yükleme işlemi başına 200 - 300 TL nakit danışmanlık ücreti alınır.",
+    "kime_satilir": "İşini bırakıp esnaf odasına gidemeyen ve dijital işlemlerden anlamayan mahalle esnafına (bakkal, berber, terzi).",
+    "baslangic_sermayesi": "0 - 500 TL",
+    "ilk_adim": "Tanıdık birkaç mahalle esnafına giderek sistem güncellemesini yapıp yapmadıklarını ve bu konuda yardıma ihtiyaç duyup duymadıklarını doğrudan sormak.",
+    "en_buyuk_risk": "İşlemin tek seferlik bir mevzuat zorunluluğu olması ve esnafın bunu ailesindeki gençlere veya esnaf odasına ücretsiz yaptırmayı tercih etmesi.",
+    "masanin_ortak_noktasi": "Esnafın şifre güvenliği konusunda son derece tedirgin olduğu ve üçüncü kişilere e-Devlet şifresini kesinlikle emanet etmeyeceği.",
+    "gerceklik_puani": 2,
+    "puan_gerekcesi": "Tek seferlik bir işlem olması, ücretsiz alternatiflerin bolluğu ve esnafın güven bariyerini aşmanın çok zor olması işi sürdürülemez kılıyor.",
+    "karar": "Uzak dur",
+    "baskan": "Gemini",
+    "baskan_model": "gemini-flash-latest"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Bakanlık esnafa eski sicil kayıtlarını sisteme aktarma zorunluluğu getirdi ama çoğu esnaf bu dijital işlerden hiç anlamıyor. Mahallemizdeki bakkal, berber, terzi gibi küçük esnafın bu veri aktarımını ve e-Devlet evrak yüklemelerini onlar adına telefondan yapıp işlem başı hizmet bedeli alabiliriz. Sıfır sermaye gerektiriyor ve ilk müşteriyi bu akşam vardiya çıkışı bile bulabiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Esnafın zaten düzenli para ödediği bir muhasebecisi ve bağlı olduğu esnaf odası var; bu işi onlara bedavaya yaptırmak varken sana neden para versinler? Ayrıca kimse e-Devlet şifresini ya da ticari sırlarını öylece emanet etmez. Yanlış bir bildirimde ceza kesilirse mesuliyeti kim alacak? Bu sürdürülebilir bir gelir modeli değil.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    },
+    {
+      "kim": "deepseek",
+      "ad": "DeepSeek",
+      "rol": "Sahadaki esnaf",
+      "metin": "Haklısın kardeşim, bizim çarşıda yabancı adama e-Devlet şifresini veren adamın aklına şaşarım. Muhasebeci her angaryaya koşmaz gerçi ama esnaf gider bağlı olduğu odaya, çayını içer işini bedavaya hallettirir. Yarın öbür gün yanlış bildirimden ceza gelse dükkânı taşlarlar, kimse bu riski alıp elin çocuğuna üç kuruş kazandırmaz.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Haklısınız, şifre istemek büyük hataydı ama esnaf sırf bir belge yüklemek için dükkânını yarım gün kapatıp odaya gitmek istemez. Biz şifre almadan, bizzat dükkânında onun telefonundan sisteme girip basacağı yerleri gösteren bir nevi ayakçı dijital rehber oluruz. Hem dükkânı açık kalır hem de 200-300 liraya yarım saatte kafası rahatlar.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "200 lira için dükkan dükkan gezip esnafın lise çağındaki çocuğuyla mı yarışacaksın? Bir defalık bakanlık uyarısı üzerine iş modeli kurulmaz; kayıtlar bittiği gün iş de tamamen biter. Üstelik vardiyadan yorgun çıkıp kapı kapı ret cevabı almak hevesini kırar. Kusura bakma, ben bu sürdürülemez ayak işine tek kuruş bağlamam.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    },
+    {
+      "kim": "deepseek",
+      "ad": "DeepSeek",
+      "rol": "Sahadaki esnaf",
+      "metin": "Yatırımcı haklı kardeşim, bu iş ölü doğmuş. Bizim esnafın dükkânında eli telefon tutan çırağı var, yeğeni var, torunu var; ona yaptırır yine sana iki yüz lira koklatmaz. Hem bir defalık bakanlık kaydı için sokak sokak taban tepilmez, akşam yorgun argın eve döndüğünle kalırsın. Bu iş çarşıda ekmek yedirmez, başka kapıya bakalım.",
+      "model": "gemini-flash-latest",
+      "yedek": true
+    }
+  ],
+  "gundem": [
+    "Ticaret Bakanı Ömer BOLAT, TESKOMB Esnaf Kooperatifleri Delegeler Toplantısı'nda konuştu - T.C. Ticaret Bakanlığı",
+    "Esnafa eski sicil kayıtlarını Ticaret Bakanlığı bilgi sistemine aktarma uyarısı - Anadolu Ajansı",
+    "Ömer Bolat'tan esnafa kredi açıklaması: 25 milyar TL'lik kaynak devreye giriyor - Ekonomim",
+    "Emlakçılar Esnaf Odası Gala Gecesi - Kanal23",
+    "Esnafa kredi musluğu açılıyor: Hem yeni kaynak hem masrafsız kredi adımı - CNBC-e",
+    "Moody’s Türkiye’deki Fon Operasyonlarının Ekonomi için Risk Oluşturmadığını Söyledi - Stratejik Düşünce Enstitüsü",
+    "DEVA Partisi heyetinden Ataşehir’de esnaf ve dernek ziyaretleri - Ataşehir Haber",
+    "Turan Kurnaz’dan Ankara’da Esnaf ve Sanatkârlar İçin Önemli Temaslar - Elazığ Son Haber",
+    "ANTALYA’DA ESNAF ZİRVESİ: ALİ RIZA ETİ ÖNEMLİ BULUŞMAYA KATILDI - Tekirdağ Yeni Haber Gazetesi",
+    "Avrupa Girişim Ekosisteminde 16-20 Kasım Yatırım Özeti - N24",
+    "Ekonomi Haberleri ➕➖ 2026 Kasım Enflasyon beklentisi nedir? TCMB anket sonuçlarını paylaştı: Enflasyonda cari ay, 1 ay ve 2 ay sonraki tahmin kaç? - Uzmanpara",
+    "AK Parti Heyetinden Düziçi'nde Esnaf Ziyareti - Akdeniz Gazetesi"
+  ]
+}
