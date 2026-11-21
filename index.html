@@ -12,7 +12,7 @@
   :root{
     --bg:#f5f1ea; --paper:#fffdf9; --ink:#1d1b18; --ink2:#5c5750; --ink3:#948d83;
     --line:#e6dfd3; --accent:#1d1b18;
-    --gemini:#5b86c2; --gpt:#c8684b; --deepseek:#7a9a4f; --claude:#d09a42;
+    --gemini:#5b86c2; --gpt:#c8684b; --llama:#7a9a4f; --claude:#d09a42;
     --serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
     --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   }
@@ -104,17 +104,17 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="brand"><span class="dots"><i style="background:var(--gemini)"></i><i style="background:var(--gpt)"></i><i style="background:var(--deepseek)"></i><i style="background:var(--claude)"></i></span>Beyin Fırtınası Masası</div>
+    <div class="brand"><span class="dots"><i style="background:var(--gemini)"></i><i style="background:var(--gpt)"></i><i style="background:var(--llama)"></i><i style="background:var(--claude)"></i></span>Beyin Fırtınası Masası</div>
     <div class="today" id="today"></div>
   </header>
   <main id="app"></main>
-  <footer>Her sabah 07:07'de Gemini, GPT ve DeepSeek tartışır, başkan karar yazar.<br>Fikirler ilham içindir; yatırım ya da hukuki tavsiye değildir.</footer>
+  <footer>Her sabah 07:07'de Gemini, GPT ve Llama tartışır, başkan karar yazar.<br>Fikirler ilham içindir; yatırım ya da hukuki tavsiye değildir.</footer>
 </div>
 
 <script>
 const SEAT = {
   gemini:{c:'var(--gemini)',h:'G'}, gpt:{c:'var(--gpt)',h:'O'},
-  deepseek:{c:'var(--deepseek)',h:'D'}, claude:{c:'var(--claude)',h:'C'}
+  llama:{c:'var(--llama)',h:'L'}, claude:{c:'var(--claude)',h:'C'}
 };
 const AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
 const GUNLER=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
@@ -128,7 +128,7 @@ document.getElementById('today').textContent=`${now.getDate()} ${AYLAR[now.getMo
 
 function ring(score){
   const r=28,c=2*Math.PI*r,p=Math.max(0,Math.min(10,score||0))/10;
-  const col=score>=7?'var(--deepseek)':score>=5?'var(--claude)':'var(--gpt)';
+  const col=score>=7?'var(--llama)':score>=5?'var(--claude)':'var(--gpt)';
   return `<div class="ring"><svg width="64" height="64"><circle cx="32" cy="32" r="${r}" fill="none" stroke="var(--line)" stroke-width="5"/>
   <circle cx="32" cy="32" r="${r}" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${c*p} ${c}"/></svg>
   <b>${score??'–'}<small>/10</small></b></div>`;
@@ -182,7 +182,7 @@ function render(day, index){
 }
 
 function empty(){
-  app.innerHTML=`<div class="empty fade"><span class="dots"><i style="background:var(--gemini)"></i><i style="background:var(--gpt)"></i><i style="background:var(--deepseek)"></i><i style="background:var(--claude)"></i></span>
+  app.innerHTML=`<div class="empty fade"><span class="dots"><i style="background:var(--gemini)"></i><i style="background:var(--gpt)"></i><i style="background:var(--llama)"></i><i style="background:var(--claude)"></i></span>
     <h1>Masa kuruldu</h1><p>Sandalyeler yerinde. İlk toplantı yapıldığında günün fikri burada görünecek.</p></div>`;
 }
 

@@ -5,8 +5,8 @@ Sonuç data/ klasörüne JSON olarak kaydedilir, index.html bunu gösterir.
 
 Koltuklar:
   1. Gemini    -> Hevesli girişimci  (GEMINI_API_KEY, ücretsiz katman)
-  2. GPT       -> Şüpheci yatırımcı  (GitHub Models, GITHUB_TOKEN)
-  3. DeepSeek  -> Sahadaki esnaf     (GitHub Models, GITHUB_TOKEN)
+  2. GPT       -> Şüpheci yatırımcı  (OpenAI gpt-oss, Groq ücretsiz katmanı, GROQ_API_KEY)
+  3. Llama     -> Sahadaki esnaf     (Meta Llama, Groq ücretsiz katmanı, GROQ_API_KEY)
   4. Claude    -> Masa başkanı       (ANTHROPIC_API_KEY, opsiyonel; yoksa Gemini)
 
 Sadece Python standart kütüphanesi kullanır.
@@ -28,7 +28,7 @@ DATA = os.path.join(ROOT, "data")
 TR = timezone(timedelta(hours=3))
 
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-GH_TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
+GROQ_KEY = os.environ.get("GROQ_API_KEY", "").strip()
 CLAUDE_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 
 
@@ -146,58 +146,55 @@ def ask_gemini(system, messages):
     raise RuntimeError(f"Gemini cevap vermedi: {last}")
 
 
-_catalog = None
+_groq_models = None
 
 
-def gh_catalog():
-    global _catalog
-    if _catalog is None:
+def groq_models():
+    global _groq_models
+    if _groq_models is None:
         try:
-            res = http_json("https://models.github.ai/catalog/models",
-                            headers={"Authorization": f"Bearer {GH_TOKEN}"}, timeout=20)
-            _catalog = [m.get("id", "") for m in res]
+            res = http_json("https://api.groq.com/openai/v1/models",
+                            headers={"Authorization": f"Bearer {GROQ_KEY}"}, timeout=20)
+            _groq_models = [m.get("id", "") for m in res.get("data", [])]
         except Exception as e:
-            log("GitHub Models kataloğu alınamadı:", e)
-            _catalog = []
-    return _catalog
+            log("Groq model listesi alınamadı:", e)
+            _groq_models = []
+    return _groq_models
 
 
-def ask_github(system, messages, prefs, prefix):
-    if not GH_TOKEN:
-        raise RuntimeError("GITHUB_TOKEN yok")
-    candidates = (list(prefs) + [m for m in gh_catalog() if m.startswith(prefix)])[:6]
+def ask_groq(system, messages, prefs, prefix):
+    if not GROQ_KEY:
+        raise RuntimeError("GROQ_API_KEY yok")
+    candidates = (list(prefs) + [m for m in groq_models() if m.startswith(prefix)])[:4]
     seen, last = set(), None
     for model in candidates:
         if model in seen:
             continue
         seen.add(model)
-        log(f"  -> GitHub {model} deneniyor")
-        payload = {"model": model,
+        log(f"  -> Groq {model} deneniyor")
+        payload = {"model": model, "temperature": 0.8,
                    "messages": [{"role": "system", "content": system}] + messages}
+        if "gpt-oss" in model:
+            payload["reasoning_effort"] = "low"
         try:
             res = with_retry(lambda: http_json(
-                "https://models.github.ai/inference/chat/completions", payload,
-                headers={"Authorization": f"Bearer {GH_TOKEN}"}))
+                "https://api.groq.com/openai/v1/chat/completions", payload,
+                headers={"Authorization": f"Bearer {GROQ_KEY}"}))
             text = res["choices"][0]["message"]["content"]
             if text and text.strip():
                 return clean(text), model
         except Exception as e:
             last = e
-            log(f"GitHub Models {model} olmadı:", e)
-    raise RuntimeError(f"GitHub Models cevap vermedi: {last}")
+            log(f"Groq {model} olmadı:", e)
+    raise RuntimeError(f"Groq cevap vermedi: {last}")
 
 
 def ask_gpt(system, messages):
-    return ask_github(system, messages,
-                      ["openai/gpt-4.1-mini", "openai/gpt-4o-mini", "openai/gpt-5-mini", "openai/gpt-4.1"],
-                      "openai/gpt")
+    return ask_groq(system, messages, ["openai/gpt-oss-120b", "openai/gpt-oss-20b"], "openai/gpt-oss")
 
 
-def ask_deepseek(system, messages):
-    return ask_github(system, messages,
-                      ["deepseek/DeepSeek-V3-0324", "deepseek/DeepSeek-R1-0528", "deepseek/DeepSeek-R1",
-                       "meta/Llama-4-Maverick-17B-128E-Instruct-FP8", "meta/Llama-3.3-70B-Instruct"],
-                      "deepseek/")
+def ask_llama(system, messages):
+    return ask_groq(system, messages, ["llama-3.3-70b-versatile", "moonshotai/kimi-k2-instruct"], "llama")
 
 
 def ask_claude(system, messages):
@@ -237,16 +234,16 @@ SEATS = {
                     "Kim para öder, ne kadar öder, rakip kim, neden şimdi diye sorarsın. Kibar ama sert sorgularsın.",
         "ask": ask_gpt,
     },
-    "deepseek": {
-        "ad": "DeepSeek", "rol": "Sahadaki esnaf",
+    "llama": {
+        "ad": "Llama", "rol": "Sahadaki esnaf",
         "karakter": "Yıllarca İstanbul çarşılarında, pazarda, sanayide iş yapmış ayağı yere basan bir esnafsın. "
                     "İlk müşteri nereden bulunur, Türkiye'de bu iş gerçekte nasıl döner, hangi bürokrasi çıkar, "
                     "bunları sokak diliyle ama saygılı anlatırsın.",
-        "ask": ask_deepseek,
+        "ask": ask_llama,
     },
 }
 
-ORDER = ["gemini", "gpt", "deepseek", "gemini", "gpt", "deepseek"]
+ORDER = ["gemini", "gpt", "llama", "gemini", "gpt", "llama"]
 
 KURALLAR = """MASANIN KURALLARI (herkes uyar):
 - Fikir GERÇEKÇİ olmalı. Hayal satmak, abartılı kazanç vaadi, "kolay zengin olma" yasak.
@@ -292,7 +289,7 @@ DUSEN = set()  # bu sabah hiç cevap veremeyen koltuklar
 
 def speak(seat_key, system, messages):
     """Koltuk sahibine sorar; o koltuk düşerse yedeğe geçer."""
-    order = [seat_key] + [k for k in ("gpt", "deepseek", "gemini") if k != seat_key]
+    order = [seat_key] + [k for k in ("gpt", "llama", "gemini") if k != seat_key]
     order = [k for k in order if k not in DUSEN] or order
     last = None
     for k in order:
@@ -407,6 +404,7 @@ def main():
     today = datetime.now(TR).strftime("%Y-%m-%d")
     log("Masa toplanıyor:", today)
     log("Gemini anahtarı:", "var" if GEMINI_KEY else "YOK (yerine yedek oturacak)")
+    log("Groq anahtarı:", "var" if GROQ_KEY else "YOK (GPT ve Llama yerine yedek oturacak)")
     log("Claude anahtarı:", "var" if CLAUDE_KEY else "yok (başkanlığı Gemini yapacak)")
     turns, haber = toplanti(today)
     rapor = karar(turns, today)

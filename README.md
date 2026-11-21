@@ -5,8 +5,8 @@ Her sabah 07:07'de (Türkiye saati) üç yapay zeka bir iş fikrini tartışır,
 | Koltuk | Rol | Kaynak |
 |---|---|---|
 | Gemini | Hevesli girişimci | Google AI Studio (ücretsiz) — `GEMINI_API_KEY` |
-| GPT | Şüpheci yatırımcı | GitHub Models (ücretsiz) |
-| DeepSeek | Sahadaki esnaf | GitHub Models (ücretsiz) |
+| GPT (gpt-oss) | Şüpheci yatırımcı | Groq ücretsiz katmanı — `GROQ_API_KEY` |
+| Llama | Sahadaki esnaf | Groq ücretsiz katmanı — `GROQ_API_KEY` |
 | Claude | Masa başkanı | `ANTHROPIC_API_KEY` (opsiyonel; yoksa Gemini başkanlık eder) |
 
 Sonuçlar `data/` klasörüne kaydedilir, `index.html` bunları gösterir.

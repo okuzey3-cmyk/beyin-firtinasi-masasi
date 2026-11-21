@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  models: read
 
 concurrency:
   group: masa
@@ -28,7 +27,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python masa.py
 
       - name: Sonucu kaydet
