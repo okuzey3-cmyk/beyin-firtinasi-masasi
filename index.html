@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f1ea">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Masa">
+<title>Beyin Fırtınası Masası</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d1b18'/><circle cx='34' cy='38' r='9' fill='%235b86c2'/><circle cx='66' cy='38' r='9' fill='%23c8684b'/><circle cx='34' cy='66' r='9' fill='%237a9a4f'/><circle cx='66' cy='66' r='9' fill='%23d09a42'/></svg>">
+<style>
+  :root{
+    --bg:#f5f1ea; --paper:#fffdf9; --ink:#1d1b18; --ink2:#5c5750; --ink3:#948d83;
+    --line:#e6dfd3; --accent:#1d1b18;
+    --gemini:#5b86c2; --gpt:#c8684b; --deepseek:#7a9a4f; --claude:#d09a42;
+    --serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#141311; --paper:#1d1b18; --ink:#f2ede4; --ink2:#bdb5a8; --ink3:#857e73; --line:#2f2c27; --accent:#f2ede4; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;
+       padding:env(safe-area-inset-top) 0 calc(48px + env(safe-area-inset-bottom));}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+  header{padding:28px 0 8px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:-.01em}
+  .dots{display:grid;grid-template-columns:repeat(2,7px);gap:3px}
+  .dots i{width:7px;height:7px;border-radius:50%;display:block}
+  .today{font-size:13px;color:var(--ink3)}
+
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+  .hero{padding:36px 0 28px}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,9vw,46px);line-height:1.08;
+           letter-spacing:-.02em;margin:14px 0 14px}
+  .hero p.lead{font-size:18px;color:var(--ink2);line-height:1.5}
+  .verdict{display:flex;align-items:center;gap:16px;margin-top:26px}
+  .ring{position:relative;width:64px;height:64px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;font-weight:600}
+  .ring b small{font-size:11px;color:var(--ink3);font-family:var(--sans);font-weight:500;margin-left:1px}
+  .verdict .v1{font-weight:600;font-size:16px}
+  .verdict .v2{font-size:14px;color:var(--ink2);margin-top:2px}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:20px}
+  .facts{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+  .fact{padding:18px 18px 20px;border-bottom:1px solid var(--line)}
+  .fact:nth-child(odd){border-right:1px solid var(--line)}
+  .fact.wide{grid-column:1/-1;border-right:none}
+  .fact:last-child{border-bottom:none}
+  .fact h3{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+  .fact p{font-size:15px}
+  .fact.step{background:linear-gradient(0deg,rgba(208,154,66,.10),rgba(208,154,66,.10))}
+  .fact.step h3{color:var(--claude)}
+
+  section{margin-top:44px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:-.01em}
+  .sec-head span{font-size:13px;color:var(--ink3)}
+
+  .chat{display:flex;flex-direction:column;gap:18px}
+  .msg{display:flex;gap:12px;align-items:flex-start}
+  .av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+      color:#fff;font-weight:700;font-size:14px}
+  .msg .who{font-size:13px;margin-bottom:3px}
+  .msg .who b{font-weight:600}
+  .msg .who span{color:var(--ink3)}
+  .bubble{background:var(--paper);border:1px solid var(--line);border-radius:4px 18px 18px 18px;padding:12px 15px;font-size:15.5px}
+  .msg.hidden{display:none}
+  .more{margin-top:18px;width:100%;padding:14px;border-radius:14px;border:1px solid var(--line);
+        background:transparent;color:var(--ink);font:600 15px var(--sans);cursor:pointer}
+  .more:active{transform:scale(.99)}
+
+  .chair{padding:22px 20px;margin-top:22px;border-left:3px solid var(--claude);border-radius:6px 20px 20px 6px}
+  .chair .who{font-size:13px;color:var(--ink3);margin-bottom:8px}
+  .chair .who b{color:var(--ink);font-weight:600}
+  .chair p{font-family:var(--serif);font-size:18px;line-height:1.5}
+
+  .archive{overflow:hidden}
+  .arc{display:flex;gap:14px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line);
+       text-decoration:none;color:inherit}
+  .arc:last-child{border-bottom:none}
+  .arc .d{font-size:12px;color:var(--ink3);width:46px;flex:none;line-height:1.25;text-align:center}
+  .arc .d b{display:block;font-family:var(--serif);font-size:22px;color:var(--ink);font-weight:600}
+  .arc .t{flex:1;min-width:0}
+  .arc .t b{display:block;font-weight:600;font-size:15px}
+  .arc .t span{display:block;font-size:13px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .arc .s{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--ink2)}
+  .arc.on{background:rgba(127,127,127,.07)}
+
+  .empty{padding:80px 0;text-align:center}
+  .empty .dots{grid-template-columns:repeat(2,14px);gap:6px;display:inline-grid;margin-bottom:24px}
+  .empty .dots i{width:14px;height:14px}
+  .empty h1{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px}
+  .empty p{color:var(--ink2);max-width:380px;margin:0 auto}
+
+  footer{margin-top:48px;font-size:12.5px;color:var(--ink3);text-align:center;line-height:1.7}
+  .fade{animation:fade .5s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="dots"><i style="background:var(--gemini)"></i><i style="background:var(--gpt)"></i><i style="background:var(--deepseek)"></i><i style="background:var(--claude)"></i></span>Beyin Fırtınası Masası</div>
+    <div class="today" id="today"></div>
+  </header>
+  <main id="app"></main>
+  <footer>Her sabah 07:07'de Gemini, GPT ve DeepSeek tartışır, başkan karar yazar.<br>Fikirler ilham içindir; yatırım ya da hukuki tavsiye değildir.</footer>
+</div>
+
+<script>
+const SEAT = {
+  gemini:{c:'var(--gemini)',h:'G'}, gpt:{c:'var(--gpt)',h:'O'},
+  deepseek:{c:'var(--deepseek)',h:'D'}, claude:{c:'var(--claude)',h:'C'}
+};
+const AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+const GUNLER=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const parse=t=>{const [y,m,d]=t.split('-').map(Number);return new Date(y,m-1,d)};
+const uzun=t=>{const d=parse(t);return `${d.getDate()} ${AYLAR[d.getMonth()]} ${GUNLER[d.getDay()]}`};
+const app=document.getElementById('app');
+
+const now=new Date();
+document.getElementById('today').textContent=`${now.getDate()} ${AYLAR[now.getMonth()]}`;
+
+function ring(score){
+  const r=28,c=2*Math.PI*r,p=Math.max(0,Math.min(10,score||0))/10;
+  const col=score>=7?'var(--deepseek)':score>=5?'var(--claude)':'var(--gpt)';
+  return `<div class="ring"><svg width="64" height="64"><circle cx="32" cy="32" r="${r}" fill="none" stroke="var(--line)" stroke-width="5"/>
+  <circle cx="32" cy="32" r="${r}" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${c*p} ${c}"/></svg>
+  <b>${score??'–'}<small>/10</small></b></div>`;
+}
+
+function fact(title,text,cls=''){ return text?`<div class="fact ${cls}"><h3>${title}</h3><p>${esc(text)}</p></div>`:''; }
+
+function render(day, index){
+  const k=day.karar||{}, t=day.tartisma||[];
+  const SHOW=3;
+  const msgs=t.map((m,i)=>{
+    const s=SEAT[m.kim]||SEAT.gemini;
+    return `<div class="msg ${i>=SHOW?'hidden':''}"><div class="av" style="background:${s.c}">${s.h}</div>
+      <div><div class="who"><b>${esc(m.ad)}</b> <span>· ${esc(m.rol)}</span></div>
+      <div class="bubble">${esc(m.metin)}</div></div></div>`;
+  }).join('');
+  const arc=(index.gunler||[]).map(g=>{const d=parse(g.tarih);return `
+    <a class="arc ${g.tarih===day.tarih?'on':''}" href="#${g.tarih}">
+      <div class="d"><b>${d.getDate()}</b>${AYLAR[d.getMonth()].slice(0,3)}</div>
+      <div class="t"><b>${esc(g.baslik)}</b><span>${esc(g.tek_cumle)}</span></div>
+      <div class="s">${g.gerceklik_puani??''}</div></a>`}).join('');
+
+  app.innerHTML=`
+  <div class="hero fade">
+    <div class="eyebrow">Günün fikri · ${uzun(day.tarih)}</div>
+    <h1>${esc(k.baslik)}</h1>
+    <p class="lead">${esc(k.tek_cumle)}</p>
+    <div class="verdict">${ring(k.gerceklik_puani)}
+      <div><div class="v1">${esc(k.karar)}</div><div class="v2">Gerçeklik puanı</div></div></div>
+  </div>
+  <div class="card facts fade">
+    ${fact('Nasıl para kazanır',k.nasil_para_kazanir)}
+    ${fact('Kime satılır',k.kime_satilir)}
+    ${fact('Başlangıç sermayesi',k.baslangic_sermayesi)}
+    ${fact('En büyük risk',k.en_buyuk_risk)}
+    ${fact('Bu hafta ilk adım',k.ilk_adim,'wide step')}
+  </div>
+  <section>
+    <div class="sec-head"><h2>Masada neler konuşuldu</h2><span>${t.length} konuşma</span></div>
+    <div class="chat" id="chat">${msgs}</div>
+    ${t.length>SHOW?`<button class="more" id="more">Tartışmanın tamamını oku</button>`:''}
+    <div class="card chair">
+      <div class="who"><b>${esc(k.baskan||'Başkan')}</b> · Masa başkanının sözü</div>
+      <p>${esc(k.masanin_ortak_noktasi)} ${esc(k.puan_gerekcesi)}</p>
+    </div>
+  </section>
+  ${(index.gunler||[]).length>1?`<section><div class="sec-head"><h2>Önceki sabahlar</h2><span>${index.gunler.length} fikir</span></div>
+    <div class="card archive">${arc}</div></section>`:''}`;
+  const more=document.getElementById('more');
+  if(more) more.onclick=()=>{document.querySelectorAll('.msg.hidden').forEach(e=>e.classList.remove('hidden'));more.remove();};
+}
+
+function empty(){
+  app.innerHTML=`<div class="empty fade"><span class="dots"><i style="background:var(--gemini)"></i><i style="background:var(--gpt)"></i><i style="background:var(--deepseek)"></i><i style="background:var(--claude)"></i></span>
+    <h1>Masa kuruldu</h1><p>Sandalyeler yerinde. İlk toplantı yapıldığında günün fikri burada görünecek.</p></div>`;
+}
+
+async function load(){
+  try{
+    const index=await (await fetch('data/index.json?'+Date.now())).json();
+    if(!index.gunler||!index.gunler.length) return empty();
+    const want=location.hash.slice(1);
+    const pick=index.gunler.find(g=>g.tarih===want)||index.gunler[0];
+    const day=await (await fetch(`data/${pick.tarih}.json?`+Date.now())).json();
+    render(day,index); window.scrollTo({top:0});
+  }catch(e){ empty(); }
+}
+window.addEventListener('hashchange',load);
+load();
+</script>
+</body>
+</html>
