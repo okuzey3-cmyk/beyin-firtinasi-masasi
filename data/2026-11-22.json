@@ -1,17 +1,17 @@
 {
   "tarih": "2026-11-22",
-  "olusturma": "2026-11-22T13:22+03:00",
+  "olusturma": "2026-11-22T15:28+03:00",
   "karar": {
-    "baslik": "İkinci El Koli Satışı",
-    "tek_cumle": "Yerel e‑ticaret satıcılarına ikinci el, sağlam kolileri yarı fiyatına temin edip teslim etmek.",
-    "nasil_para_kazanir": "Toplanan kolilerden düşük maliyetle alıp satıcıdan marj alırsınız; her koli için %30‑40 kar hedeflenir.",
-    "kime_satilir": "Küçük ölçekli e‑ticaret butikleri ve yerel online satıcılar.",
-    "baslangic_sermayesi": "0 - 1.000 TL",
-    "ilk_adim": "Beykoz’daki bir mobilya atölyesinden 5‑10 adet hurda koli toplamak ve yakın 3‑4 e‑ticaret satıcısına WhatsApp üzerinden teklif vermek.",
-    "en_buyuk_risk": "Lojistik maliyetlerin ve ücretsiz taşıma beklentisinin sürdürülemez olması.",
-    "masanin_ortak_noktasi": "Üç taraf da lojistik maliyetlerin sıfır olmayacağını kabul ediyor.",
-    "gerceklik_puani": 5,
-    "puan_gerekcesi": "Uygulanabilir ama maliyet ve ölçek sorunları yüksek.",
+    "baslik": "Kooperatif Hediyelik Paketleme",
+    "tek_cumle": "Kadın kooperatiflerinin doğal ürünlerini, yılbaşı öncesi KOBİ’lere özel hikayeli hediye paketleri olarak satmak.",
+    "nasil_para_kazanir": "Her paket satışından net kâr payı alınır; avans ve numune maliyetleri sipariş onaylandığında geri kazanılır.",
+    "kime_satilir": "Küçük ve orta ölçekli işletmelerin yılbaşı kurumsal hediye ihtiyacı olan ofisleri.",
+    "baslangic_sermayesi": "3.000 - 8.000 TL",
+    "ilk_adim": "Bu hafta üç potansiyel KOBİ ile yüz yüze görüşüp bir numune kutusu hazırlayıp sunun.",
+    "en_buyuk_risk": "Avans toplama ve numune üretimindeki nakit akışı riski.",
+    "masanin_ortak_noktasi": "Herkes, kişiselleştirilmiş, hikayeli paketlerin küçük işletmelerde talep göreceğini kabul etti.",
+    "gerceklik_puani": 6,
+    "puan_gerekcesi": "Pazar ihtiyacı var ama sermaye ve nakit akışı riski yüksek.",
     "karar": "Şartlı evet",
     "baskan": "GPT",
     "baskan_model": "openai/gpt-oss-120b"
@@ -21,7 +21,7 @@
       "kim": "gemini",
       "ad": "Gemini",
       "rol": "Hevesli girişimci",
-      "metin": "Arkadaşlar, artan ambalaj fiyatları yüzünden e-ticaret yapan butik esnaf çok zorlanıyor; masaya temiz ikinci el koli aracılığı fikrini getiriyorum. Sanayiden veya toptancılardan çöpe gidecek sağlam kolileri ucuza toplayıp, yerel internet satıcılarına piyasanın yarı fiyatına satacağız. Sıfır sermayeyle sadece telefondan organize edilip bu hafta başlatılabilecek gerçekçi bir kazanç kapısı.",
+      "metin": "Kadın kooperatiflerinin doğal ürünlerini, yaklaşan yılbaşı öncesinde çevremizdeki küçük işletmelere kurumsal hediye paketi olarak satabiliriz [1]. Telefondan üreticilerden görsel alıp katalog oluşturur, KOBİ’lerden ön sipariş ve avans toplayarak sıfır sermayeyle işi bağlarız. Ürünleri vardiya çıkışında evde paketleyip teslim ederek her sepetten net kâr payı kazanırız.",
       "model": "gemini-flash-latest",
       "yedek": false
     },
@@ -29,7 +29,7 @@
       "kim": "gpt",
       "ad": "GPT",
       "rol": "Şüpheci yatırımcı",
-      "metin": "Bu fikir için şu sorulara cevap lazım: Kim bu kolileri temin edecek, ne kadar ödeme yapacak, geri dönüş süresi ne? İşçi vardiyalı bir fabrika işçisinin haftada kaç saat ayırması gerçekçi? Rekabetçi fiyatları nasıl sürdürebiliriz, lojistik maliyetleri 0 TL olur mu?",
+      "metin": "Bu modelde avans toplamak riskli; geri ödemeyi kim garantiliyor, teminat var mı? Kredi ya da destek almayı düşünmüyor musunuz, maliyet ve geri dönüş süresi ne kadar? Rekabetçi fiyatla aynı ürünleri büyük marketler nasıl sunacak, sürdürülebilir mi?",
       "model": "openai/gpt-oss-120b",
       "yedek": false
     },
@@ -37,7 +37,7 @@
       "kim": "esnaf",
       "ad": "Qwen",
       "rol": "Sahadaki esnaf",
-      "metin": "Doğru söylüyorsun, lojistik parasız dolaşmaz; o yüzden ben mesela Beykoz'daki mobilya atölyelerinin hurda kolilerini karşılıksız toplarım, ikametgahımdan dağıtırım. İlk haftada yalnızca aynı sokaktaki üç e-ticariyle çay sohbetinde anlaşma yapmam yeterli, büyük fabrika zorunluluğu yok bu işte.",
+      "metin": "Büyük marketlerle koş koşamazsın, senin gücün birebir ilişki. Küçük firmaların ofis içi kutulara ihtiyacı var, bunu sen çözersin.",
       "model": "qwen/qwen3.8-27b",
       "yedek": false
     },
@@ -45,7 +45,7 @@
       "kim": "gemini",
       "ad": "Gemini",
       "rol": "Hevesli girişimci",
-      "metin": "Aynen öyle, çözümü büyütmeden kendi mahallemizde tutacağız. Vardiya çıkışında yakındaki esnaftan WhatsApp üzerinden siparişi alıp, yürüyüş mesafesindeki satıcıya aynı gün elden teslim ederiz. Ne depo masrafı çıkar ne de benzin parası; sıfır riskle ilk haftadan nakit akışı sağlarız.",
+      "metin": "Aynen öyle, market standart paket satar; biz işletmeye özel, hikayesi olan samimi kutular sunuyoruz. Güven sorununu çözmek için de avans istemeden önce 500 liraya tek bir numune kutusu hazırlarız. Hafta sonu o numuneyi sanayideki tanıdık işletmelere gösterip siparişi kesinleştirince tedarike geçeriz.",
       "model": "gemini-flash-latest",
       "yedek": false
     },
@@ -53,7 +53,7 @@
       "kim": "gpt",
       "ad": "GPT",
       "rol": "Şüpheci yatırımcı",
-      "metin": "Bu modelde toplama ve dağıtım için hâlâ bir maliyet var; kimse ücretsiz taşımaz, yakıt ve zaman karşılığı talep eder. İlk hafta sadece birkaç küçük satıcıyı kapsarsa, gelir düşük, geri dönüş 1‑2 ay içinde bile zor olur. Şu an yatırım yapmam, önce net lojistik maliyet hesabı ve ölçeklenebilir bir kar marjı görmek istiyorum.",
+      "metin": "Avans ve numune maliyetini nasıl karşılayacaksınız, sermaye 0‑25 bin TL sınırında kalacak mı? KOBİ desteklerinden yararlanma şansınız nedir, geri ödeme planı ne kadar sürecek? Şu anki model yüksek ön maliyet ve belirsiz nakit akışıyla riskli, yatırımcının cebine net bir geri dönüş görmüyorum.",
       "model": "openai/gpt-oss-120b",
       "yedek": false
     },
@@ -61,7 +61,7 @@
       "kim": "esnaf",
       "ad": "Qwen",
       "rol": "Sahadaki esnaf",
-      "metin": "Abi, yakıt parası da var ama biz telefonda siparişi toplayıp marketten alıp dolaba bırakıyoruz, bu sıfır nakit maliyet. İlk ayda on koli satarım yeter, sonra ölçekleriz.",
+      "metin": "Numune maliyetini ilk siparişe ekle, elden para verme. Birkaç firma toplarsan amortisman çıkar. Bu hafta sanayi sitesinde üç esnafa yüz yüze danış, tepkiyi al.",
       "model": "qwen/qwen3.8-27b",
       "yedek": false
     }
@@ -76,8 +76,8 @@
     "73 KADIN GİRİŞİMCİLİK YOLUNDA İLK ADIMINI ATTI - Esenler Belediyesi",
     "Beşiktaş'ta tabelalar söküldü, esnaf tepki gösterdi. Söküm gerekçesi görüntü kirliliği - NTV Haber",
     "Burgan Bank, ONx Ventures ile girişimcilik ekosistemini büyütüyor - Fintechtime",
+    "Suriye’de Girişimcilik Üretimi, Yeni İstihdam Olanaklarını Destekliyor - سانا",
     "KOBİ'lere 3 milyar liralık yeşil dönüşüm desteği - Bloomberght",
-    "Gürsel Tekin’e dert yanan esnaf: “Esnaf olarak bu pahalılıktan hiç memnun değilim” - Anka Haber",
-    "Bakan Bolat’tan esnaf teşkilatlarına destek mesajı - Bigpara"
+    "Gürsel Tekin’e dert yanan esnaf: “Esnaf olarak bu pahalılıktan hiç memnun değilim” - Anka Haber"
   ]
 }
