@@ -270,7 +270,7 @@ KURALLAR = """MASANIN KURALLARI (herkes uyar):
 - Başlangıç sermayesi düşük olmalı (tercihen 0 - 25.000 TL arası).
 - İlk somut adım bu hafta atılabilmeli.
 - Yasal, etik ve gerçek bir ihtiyaca dayalı olmalı.
-- Türkçe konuş. Sohbet eder gibi, kısa konuş: en fazla 3-4 cümle (60 kelimeyi geçme). Başlık, madde işareti, emoji kullanma.
+- Türkçe konuş. Sohbet eder gibi, kısa konuş: en fazla 3 cümle (50 kelimeyi kesinlikle geçme). Başlık, madde işareti, emoji kullanma.
 - Kendi adını ya da rolünü cümlenin başına yazma, doğrudan konuş."""
 
 
@@ -365,7 +365,7 @@ KARAR_SEMA = """{
   "masanin_ortak_noktasi": "Üçünün de hemfikir olduğu nokta, 1 cümle",
   "gerceklik_puani": 7,
   "puan_gerekcesi": "Puanın kısa gerekçesi, 1 cümle",
-  "karar": "Masanın son sözü: 'Denemeye değer', 'Şartlı evet' ya da 'Uzak dur' gibi kısa bir hüküm"
+  "karar": "SADECE şu üçünden biri, parantez veya açıklama ekleme: 'Denemeye değer', 'Şartlı evet', 'Uzak dur'"
 }"""
 
 
