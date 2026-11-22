@@ -6,7 +6,7 @@ Sonuç data/ klasörüne JSON olarak kaydedilir, index.html bunu gösterir.
 Koltuklar:
   1. Gemini    -> Hevesli girişimci  (GEMINI_API_KEY, ücretsiz katman)
   2. GPT       -> Şüpheci yatırımcı  (OpenAI gpt-oss, Groq ücretsiz katmanı, GROQ_API_KEY)
-  3. Llama     -> Sahadaki esnaf     (Meta Llama, Groq ücretsiz katmanı, GROQ_API_KEY)
+  3. Qwen/Llama -> Sahadaki esnaf    (Groq'taki diğer açık model, Groq ücretsiz katmanı, GROQ_API_KEY)
   4. Claude    -> Masa başkanı       (ANTHROPIC_API_KEY, opsiyonel; yoksa Gemini)
 
 Sadece Python standart kütüphanesi kullanır.
@@ -193,8 +193,26 @@ def ask_gpt(system, messages):
     return ask_groq(system, messages, ["openai/gpt-oss-120b", "openai/gpt-oss-20b"], "openai/gpt-oss")
 
 
-def ask_llama(system, messages):
-    return ask_groq(system, messages, ["llama-3.3-70b-versatile", "moonshotai/kimi-k2-instruct"], "llama")
+SKIP = ("gpt-oss", "whisper", "guard", "tts", "orpheus", "compound", "allam", "playai", "distil")
+
+
+def ask_esnaf(system, messages):
+    """Groq'ta gpt-oss dışında hangi sohbet modeli varsa onu oturtur (Qwen, Llama, Kimi...)."""
+    others = [m for m in groq_models() if not any(w in m.lower() for w in SKIP)]
+    prefs = ["qwen/qwen3.8-27b", "llama-3.3-70b-versatile", "moonshotai/kimi-k2-instruct-0905"]
+    ordered = [m for m in prefs if m in others] + [m for m in others if m not in prefs]
+    if not ordered:
+        ordered = prefs
+    return ask_groq(system, messages, ordered, "\0")
+
+
+def model_adi(model):
+    m = model.lower()
+    for anahtar, ad in (("qwen", "Qwen"), ("llama", "Llama"), ("kimi", "Kimi"), ("deepseek", "DeepSeek"),
+                        ("mistral", "Mistral"), ("gemma", "Gemma")):
+        if anahtar in m:
+            return ad
+    return model.split("/")[-1]
 
 
 def ask_claude(system, messages):
@@ -234,16 +252,16 @@ SEATS = {
                     "Kim para öder, ne kadar öder, rakip kim, neden şimdi diye sorarsın. Kibar ama sert sorgularsın.",
         "ask": ask_gpt,
     },
-    "llama": {
-        "ad": "Llama", "rol": "Sahadaki esnaf",
+    "esnaf": {
+        "ad": "Qwen", "rol": "Sahadaki esnaf",
         "karakter": "Yıllarca İstanbul çarşılarında, pazarda, sanayide iş yapmış ayağı yere basan bir esnafsın. "
                     "İlk müşteri nereden bulunur, Türkiye'de bu iş gerçekte nasıl döner, hangi bürokrasi çıkar, "
                     "bunları sokak diliyle ama saygılı anlatırsın.",
-        "ask": ask_llama,
+        "ask": ask_esnaf,
     },
 }
 
-ORDER = ["gemini", "gpt", "llama", "gemini", "gpt", "llama"]
+ORDER = ["gemini", "gpt", "esnaf", "gemini", "gpt", "esnaf"]
 
 KURALLAR = """MASANIN KURALLARI (herkes uyar):
 - Fikir GERÇEKÇİ olmalı. Hayal satmak, abartılı kazanç vaadi, "kolay zengin olma" yasak.
@@ -289,7 +307,7 @@ DUSEN = set()  # bu sabah hiç cevap veremeyen koltuklar
 
 def speak(seat_key, system, messages):
     """Koltuk sahibine sorar; o koltuk düşerse yedeğe geçer."""
-    order = [seat_key] + [k for k in ("gpt", "llama", "gemini") if k != seat_key]
+    order = [seat_key] + [k for k in ("gpt", "esnaf", "gemini") if k != seat_key]
     order = [k for k in order if k not in DUSEN] or order
     last = None
     for k in order:
@@ -327,6 +345,8 @@ def toplanti(today):
             if i >= len(ORDER) - 2:
                 prompt += " Tartışma bitmek üzere, son görüşünü net söyle."
         text, model, yedek = speak(key, system, [{"role": "user", "content": prompt}])
+        if key == "esnaf" and not yedek:
+            seat["ad"] = model_adi(model)
         turns.append({"kim": key, "ad": seat["ad"], "rol": seat["rol"], "metin": text,
                       "model": model, "yedek": yedek})
         log(f"[{seat['ad']}] {text[:80]}...")

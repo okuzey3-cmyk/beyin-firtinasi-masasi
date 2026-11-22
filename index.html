@@ -108,13 +108,13 @@
     <div class="today" id="today"></div>
   </header>
   <main id="app"></main>
-  <footer>Her sabah 07:07'de Gemini, GPT ve Llama tartışır, başkan karar yazar.<br>Fikirler ilham içindir; yatırım ya da hukuki tavsiye değildir.</footer>
+  <footer>Her sabah 07:07'de üç yapay zeka tartışır, başkan karar yazar.<br>Fikirler ilham içindir; yatırım ya da hukuki tavsiye değildir.</footer>
 </div>
 
 <script>
 const SEAT = {
   gemini:{c:'var(--gemini)',h:'G'}, gpt:{c:'var(--gpt)',h:'O'},
-  llama:{c:'var(--llama)',h:'L'}, claude:{c:'var(--claude)',h:'C'}
+  esnaf:{c:'var(--llama)',h:'Q'}, claude:{c:'var(--claude)',h:'C'}
 };
 const AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
 const GUNLER=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
@@ -140,8 +140,8 @@ function render(day, index){
   const k=day.karar||{}, t=day.tartisma||[];
   const SHOW=3;
   const msgs=t.map((m,i)=>{
-    const s=SEAT[m.kim]||SEAT.gemini;
-    return `<div class="msg ${i>=SHOW?'hidden':''}"><div class="av" style="background:${s.c}">${s.h}</div>
+    const s=SEAT[m.kim]||SEAT.gemini; const ini=(m.ad||'?')[0];
+    return `<div class="msg ${i>=SHOW?'hidden':''}"><div class="av" style="background:${s.c}">${m.kim==='gpt'?'O':ini}</div>
       <div><div class="who"><b>${esc(m.ad)}</b> <span>· ${esc(m.rol)}${m.yedek?' · yedek oyuncu konuştu':''}</span></div>
       <div class="bubble">${esc(m.metin)}</div></div></div>`;
   }).join('');
