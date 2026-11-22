@@ -121,17 +121,29 @@ def gemini_models():
     return _gem_models
 
 
-def ask_gemini(system, messages):
+def ask_gemini(system, messages, arama=False):
     if not GEMINI_KEY:
         raise RuntimeError("GEMINI_API_KEY yok")
+    if arama:
+        try:
+            return _ask_gemini(system, messages, True)
+        except Exception as e:
+            log("Gemini Google aramalı cevap veremedi, aramasız deneniyor:", e)
+    return _ask_gemini(system, messages, False)
+
+
+def _ask_gemini(system, messages, arama):
     contents = [{"role": "model" if m["role"] == "assistant" else "user",
                  "parts": [{"text": m["content"]}]} for m in messages]
     payload = {"systemInstruction": {"parts": [{"text": system}]},
                "contents": contents,
                "generationConfig": {"temperature": 0.9}}
+    if arama:
+        payload["tools"] = [{"google_search": {}}]
     last = None
-    for model in gemini_models():
-        log(f"  -> Gemini {model} deneniyor")
+    models = gemini_models()[:2] if arama else gemini_models()
+    for model in models:
+        log(f"  -> Gemini {model} deneniyor{' (Google aramalı)' if arama else ''}")
         try:
             url = (f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key="
                    + urllib.parse.quote(GEMINI_KEY))
@@ -276,7 +288,7 @@ KURALLAR = """MASANIN KURALLARI (herkes uyar):
 
 def gundem():
     """Güncel Türkiye ekonomi/iş haber başlıkları (tartışmaya gerçeklik zemini)."""
-    url = ("https://news.google.com/rss/search?q=" + urllib.parse.quote("girişim OR esnaf OR e-ticaret OR ekonomi when:3d")
+    url = ("https://news.google.com/rss/search?q=" + urllib.parse.quote("girişimcilik OR KOBİ OR e-ticaret OR esnaf OR \"yan gelir\" OR \"yeni iş\" when:7d")
            + "&hl=tr&gl=TR&ceid=TR:tr")
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -305,14 +317,17 @@ def transcript_text(turns):
 DUSEN = set()  # bu sabah hiç cevap veremeyen koltuklar
 
 
-def speak(seat_key, system, messages):
+def speak(seat_key, system, messages, arama=False):
     """Koltuk sahibine sorar; o koltuk düşerse yedeğe geçer."""
     order = [seat_key] + [k for k in ("gpt", "esnaf", "gemini") if k != seat_key]
     order = [k for k in order if k not in DUSEN] or order
     last = None
     for k in order:
         try:
-            text, model = SEATS[k]["ask"](system, messages)
+            if k == "gemini" and arama:
+                text, model = ask_gemini(system, messages, arama=True)
+            else:
+                text, model = SEATS[k]["ask"](system, messages)
             return text, model, (k != seat_key)
         except Exception as e:
             last = e
@@ -335,7 +350,8 @@ def toplanti(today):
         seat = SEATS[key]
         system = f"Sen 'Beyin Fırtınası Masası' adlı bir tartışma masasında oturuyorsun. Rolün: {seat['rol']}. {seat['karakter']}\n\n{KURALLAR}"
         if i == 0:
-            prompt = (baglam + "\nToplantıyı sen açıyorsun. Bugün masaya TEK bir iş fikri getir: "
+            prompt = (baglam + "\nToplantıyı sen açıyorsun. Gerekirse internette arayıp Türkiye'deki güncel bir ihtiyaca, "
+                      "trende ya da boşluğa dayan. Bugün masaya TEK bir iş fikri getir: "
                       "ne olduğunu, kime satılacağını ve nasıl para kazanacağını kısaca söyle.")
         else:
             prompt = (baglam + "\nŞimdiye kadarki konuşma:\n\n" + transcript_text(turns) +
@@ -344,7 +360,7 @@ def toplanti(today):
                 prompt += " İtirazları dikkate al, fikri gerekirse daha gerçekçi hale getir."
             if i >= len(ORDER) - 2:
                 prompt += " Tartışma bitmek üzere, son görüşünü net söyle."
-        text, model, yedek = speak(key, system, [{"role": "user", "content": prompt}])
+        text, model, yedek = speak(key, system, [{"role": "user", "content": prompt}], arama=(i == 0))
         if key == "esnaf" and not yedek:
             seat["ad"] = model_adi(model)
         turns.append({"kim": key, "ad": seat["ad"], "rol": seat["rol"], "metin": text,
@@ -376,7 +392,8 @@ def karar(turns, today):
     prompt = (f"Tarih: {today}\n\nTartışma:\n\n{transcript_text(turns)}\n\n"
               f"Sadece aşağıdaki şemaya uyan geçerli bir JSON döndür, başka hiçbir şey yazma:\n{KARAR_SEMA}")
     msgs = [{"role": "user", "content": prompt}]
-    sources = [("claude", "Claude", ask_claude), ("gemini", "Gemini", ask_gemini), ("gpt", "GPT", ask_gpt)]
+    # Fikri Gemini açtığı için tarafsızlık adına başkanlık önce Claude'da, yoksa GPT'de
+    sources = [("claude", "Claude", ask_claude), ("gpt", "GPT", ask_gpt), ("gemini", "Gemini", ask_gemini)]
     last = None
     for key, ad, fn in sources:
         try:
@@ -425,7 +442,7 @@ def main():
     log("Masa toplanıyor:", today)
     log("Gemini anahtarı:", "var" if GEMINI_KEY else "YOK (yerine yedek oturacak)")
     log("Groq anahtarı:", "var" if GROQ_KEY else "YOK (GPT ve Llama yerine yedek oturacak)")
-    log("Claude anahtarı:", "var" if CLAUDE_KEY else "yok (başkanlığı Gemini yapacak)")
+    log("Claude anahtarı:", "var" if CLAUDE_KEY else "yok (başkanlığı GPT yapacak)")
     turns, haber = toplanti(today)
     rapor = karar(turns, today)
     kaydet(today, turns, rapor, haber)
