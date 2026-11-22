@@ -1,0 +1,83 @@
+{
+  "tarih": "2026-11-22",
+  "olusturma": "2026-11-22T13:12+03:00",
+  "karar": {
+    "baslik": "Yerel İkinci El Eşya Aracılığı",
+    "tek_cumle": "Pazarlık ve ilan süreçleriyle uğraşmak istemeyen kişilerin ikinci el mobilya ve beyaz eşyalarını popüler platformlarda satıp komisyon alma modeli.",
+    "nasil_para_kazanir": "Satışı kapatılan ürünün nihai bedeli üzerinden satıcıdan %8 ile %10 arasında aracılık komisyonu kesilerek kazanç sağlanır.",
+    "kime_satilir": "İlan açmaya vakti olmayan, pazarlık stresinden kaçınan veya evine yabancı alıcı sokmak istemeyen taşınan mahalle sakinlerine ve esnafa sunulur.",
+    "baslangic_sermayesi": "0 - 2.000 TL",
+    "ilk_adim": "Mahalledeki esnafla veya taşınan bir komşuyla konuşup satılmak istenen 1 adet beyaz eşyanın fotoğraflarını çekerek Letgo ve sarı sitede ilana girmek.",
+    "en_buyuk_risk": "Alıcı ile satıcının aracıyı aradan çıkarıp doğrudan anlaşması veya taşıma esnasında ürüne gelecek hasarın yasal sorumluluğunun net olmaması.",
+    "masanin_ortak_noktasi": "İşin sıfıra yakın sermaye ile bu hafta tek bir ürün üzerinden bile hemen test edilip ilk gelirin denenebileceği.",
+    "gerceklik_puani": 8,
+    "puan_gerekcesi": "Mevcut akıllı telefon ve ücretsiz pazar yeri uygulamalarıyla hemen yarın başlanabilecek kadar somut ve düşük maliyetli olması.",
+    "karar": "Denemeye değer",
+    "baskan": "Gemini",
+    "baskan_model": "gemini-flash-latest"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Benim aklımda sıfır sermayeli bir yerel eşya aracılığı var. Mahalledeki esnafın ya da taşınan komşuların elden çıkarmak istediği temiz ikinci el mobilya ve beyaz eşyaları telefonla çekip Letgo ve sarı siteye yüklüyoruz. Alıcıyı bulup satışı bağlayınca satıcıdan yüzde on komisyon alıyoruz. Vardiya aralarında sadece mesajları yöneterek bu hafta ilk ilanla başlanabilir.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Komisyon %10 mantıklı ama iki sorum var: Satıcıları nasıl çekeceksiniz, rekabette Letgo/Şikşir gibi platformlarla nasıl fark yaratacaksınız? Başlangıçta ne kadar sermaye harcayacaksınız, reklam, fotoğraf ekipmanı vb.? İlk hafta gerçekten bir işlem kapatabilir misiniz, yoksa sadece ilanları mı dolduracaksınız?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "llama",
+      "ad": "Llama",
+      "rol": "Sahadaki esnaf",
+      "metin": "Komisyon %10’luk rakamı tutturmak zor, ama satıcıları çekmek için “Ücretsiz fotoğraf, hızlı ödeme ve 1 haftada satış garantisi” gibi vaatler koyabilirsiniz; esnafın bir kısmı zaten telefonla ilan verir, siz de onlara “biz sizinle tek bir numaradan iletişimde kalalım, geri kalanını biz hallederiz” diyerek güven kazanırsınız. Letgo gibi büyük platformlar geniş ama yavaş; siz bölgeye odaklanıp, teslimatı aynı gün ayarlarsanız fark yaratır. Başlangıçta sadece akıllı telefon, bir tripod ve 10 TL’lik internet paketi yeterli; reklamı WhatsApp grupları ve mahalle çarşı duyuruları ile yapın, bu hafta bir ya da iki eşyanın satışıyla işe başlayabilirsiniz.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": true
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Llama çok haklı, bizim asıl farkımız hız ve pazarlık stresini satıcının üzerinden almak olacak. İnsanlar sarı sitede ölücülerle yazışmaktan, kapısına tanımadığı insanı çağırmaktan bıkmış durumda. Mahalledeki bir iki nakliyeciyle anlaşıp taşınanlara aracılık teklif edeceğiz. Bu hafta sonu çevreden tek bir çamaşır makinesi bağlasak bile ilk komisyon cebimize girer.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu planda gerçek maliyet neredeyse sıfır, ama satıcıları platforma yönlendirecek bir pazarlama bütçesi (en az 2 000 TL) ve güven oluşturacak bir sözleşme altyapısı gerekir; aksi takdirde komisyon %10 sürdürülebilir olmaz. Rekabet avantajı sadece hızlı teslimatta kalır, fakat nakliye anlaşması ve sigorta sorumluluğu ek risk getirir. İlk haftada bir satış hedefi gerçekçi, ama ölçeklenebilirlik için net bir büyüme modeli ve kar marjı hesaplaması görmek isterim.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "llama",
+      "ad": "Llama",
+      "rol": "Sahadaki esnaf",
+      "metin": "Satıcıları çekmek için “biz sadece fotoğraf çeker, ödemeyi anında yapar ve eşyayı aynı gün alırız” mesajını mahalle WhatsApp gruplarında ve çarşıda dağıtın; bu basit vaat, rekabeti de zorlayacak. Başlangıçta telefon, mini tripod ve bir paket veri (≈15 TL) yeter; nakliye için bir iki taşerle anlaşma yapıp komisyonu %8‑10 tutabilirsiniz. İlk hafta bir çamaşır makinesi ya da koltuk satışıyla gelir elde eder, ardından referanslarla ilan sayısını iki katına çıkarırsınız. Bu model düşük sermaye, yerel güven ve hızlı teslimat üzerine kurulu, ileride e‑ticaret eğitimiyle kadın girişimcilere de genişletilebilir.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": true
+    }
+  ],
+  "gundem": [
+    "Yeni Partili Sümer'den ekonomi tepkisi: 'Çiftçi üretimden çekiliyor, işçiler geçinemiyor' - Evrensel",
+    "MHP’den Diyarbakır’da esnaf ziyareti - Tigris Haber",
+    "Ekonomi, jeopolitiğin önünde olmaya devam edecek mi? - Investing.com Türkiye",
+    "Rusya Ukrayna’nın enerji ve liman altyapı tesislerini vurdu - Bloomberght",
+    "GTA 6 yeni bir ekonomi yarattı: Küçük kanallar bile binlerce dolar kazanıyor - CNBC-e",
+    "Ticaret Bakanlığı’ndan zincir markete ceza! ’Hep Ucuz’ sloganı pahalıya patladı - Yeni Asır",
+    "Büyükşehir’in Destekleriyle Mersinli Üretici Kadınlar E-Ticaret Eğitimi Aldı - Habere Güven",
+    "Bakan Bolat: Halkbank esnafa 25 milyar liralık kredi musluğunu açıyor - Ekonomi Gazetesi",
+    "A330 filosuna premium ekonomi sınıfı geliyor - AirportHaber",
+    "Tarımda dijitalleşmenin yol haritası belli oldu - Sabah",
+    "\"Emlakçılar konut gösterimi için ücret talep edemez\" uyarısı - Habertürk",
+    "COP31'de gözler Genel Kurul'da - CNN Türk"
+  ]
+}
