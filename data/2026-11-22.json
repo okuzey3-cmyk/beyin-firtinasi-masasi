@@ -1,27 +1,27 @@
 {
   "tarih": "2026-11-22",
-  "olusturma": "2026-11-22T13:14+03:00",
+  "olusturma": "2026-11-22T13:22+03:00",
   "karar": {
-    "baslik": "Ön Siparişli Yerel Gıda Aracılığı",
-    "tek_cumle": "Üreticiden temin edilen dayanıklı temel gıda ürünlerini, apartman ve iş yeri gibi yakın çevre ağlarında ön sipariş toplayarak sıfır stokla elden ulaştırma modeli.",
-    "nasil_para_kazanir": "Üreticiden toptan veya indirimli alınan ürünlerin üzerine yaklaşık yüzde 15-20 marj konularak perakende fiyattan satılmasıyla kazanç sağlanır.",
-    "kime_satilir": "Doğal ve güvenilir gıdaya pratik yoldan ulaşmak isteyen iş arkadaşları, komşular ve tanıdık çevreler.",
-    "baslangic_sermayesi": "1.000 - 3.000 TL",
-    "ilk_adim": "Zeytinyağı veya salça gibi dayanıklı 1-2 ürünü güvenilir bir üreticiden fiyatlayıp apartman veya iş yeri WhatsApp grubunda ön talep toplamak.",
-    "en_buyuk_risk": "Düşük kâr marjının harcanan zaman ve yakıt maliyetini kurtarmaması ve sipariş iptallerinde ürünün elde kalması.",
-    "masanin_ortak_noktasi": "Gelişmiş bir yazılım veya reklam harcaması yapmadan, doğrudan mevcut tanıdık çevresiyle mikro ölçekte başlanması gerektiği.",
-    "gerceklik_puani": 7,
-    "puan_gerekcesi": "Sıfır stok ve hazır çevreyle yarın başlanabilecek kadar pratik bir mikro iş olsa da kâr marjı düşüklüğü nedeniyle geçim sağlayacak bir işe dönüşmesi zordur.",
-    "karar": "Şartlı evet (Büyük yatırım yapmadan, cep harçlığı odaklı mikro deneme olarak).",
-    "baskan": "Gemini",
-    "baskan_model": "gemini-flash-latest"
+    "baslik": "İkinci El Koli Satışı",
+    "tek_cumle": "Yerel e‑ticaret satıcılarına ikinci el, sağlam kolileri yarı fiyatına temin edip teslim etmek.",
+    "nasil_para_kazanir": "Toplanan kolilerden düşük maliyetle alıp satıcıdan marj alırsınız; her koli için %30‑40 kar hedeflenir.",
+    "kime_satilir": "Küçük ölçekli e‑ticaret butikleri ve yerel online satıcılar.",
+    "baslangic_sermayesi": "0 - 1.000 TL",
+    "ilk_adim": "Beykoz’daki bir mobilya atölyesinden 5‑10 adet hurda koli toplamak ve yakın 3‑4 e‑ticaret satıcısına WhatsApp üzerinden teklif vermek.",
+    "en_buyuk_risk": "Lojistik maliyetlerin ve ücretsiz taşıma beklentisinin sürdürülemez olması.",
+    "masanin_ortak_noktasi": "Üç taraf da lojistik maliyetlerin sıfır olmayacağını kabul ediyor.",
+    "gerceklik_puani": 5,
+    "puan_gerekcesi": "Uygulanabilir ama maliyet ve ölçek sorunları yüksek.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
   },
   "tartisma": [
     {
       "kim": "gemini",
       "ad": "Gemini",
       "rol": "Hevesli girişimci",
-      "metin": "Masaya getirdiğim fikir, küçük üreticilerle tüketicileri buluşturan ön siparişli yerel gıda aracılığı. Köydeki veya kasabadaki üreticinin bal, zeytinyağı, ceviz gibi dayanıklı ürünlerini telefondan fotoğraflayıp apartman, iş yeri ve WhatsApp gruplarında satışa sunuyoruz. Sıfır stokla, sadece sipariş geldikçe ürünü alıp teslim ederek aradaki komisyondan net kazanç sağlıyoruz. Bu hafta hemen tek bir üreticiyle görüşüp başlayabiliriz.",
+      "metin": "Arkadaşlar, artan ambalaj fiyatları yüzünden e-ticaret yapan butik esnaf çok zorlanıyor; masaya temiz ikinci el koli aracılığı fikrini getiriyorum. Sanayiden veya toptancılardan çöpe gidecek sağlam kolileri ucuza toplayıp, yerel internet satıcılarına piyasanın yarı fiyatına satacağız. Sıfır sermayeyle sadece telefondan organize edilip bu hafta başlatılabilecek gerçekçi bir kazanç kapısı.",
       "model": "gemini-flash-latest",
       "yedek": false
     },
@@ -29,7 +29,7 @@
       "kim": "gpt",
       "ad": "GPT",
       "rol": "Şüpheci yatırımcı",
-      "metin": "Bu modelde komisyon oranı ne? Üreticiye ne kadar ödeyeceksiniz, siz ne kadar tutacaksınız? Tek bir üreticiyle başlayınca maliyetleri (lojistik, ödeme altyapısı, reklam) nasıl karşılayacaksınız ve ne kadar sürede kâra geçeceksiniz? Ayrıca, benzer platformlar zaten var; sizinki neden farklı ve rekabetçi?",
+      "metin": "Bu fikir için şu sorulara cevap lazım: Kim bu kolileri temin edecek, ne kadar ödeme yapacak, geri dönüş süresi ne? İşçi vardiyalı bir fabrika işçisinin haftada kaç saat ayırması gerçekçi? Rekabetçi fiyatları nasıl sürdürebiliriz, lojistik maliyetleri 0 TL olur mu?",
       "model": "openai/gpt-oss-120b",
       "yedek": false
     },
@@ -37,7 +37,7 @@
       "kim": "esnaf",
       "ad": "Qwen",
       "rol": "Sahadaki esnaf",
-      "metin": "Komisyon meselesini bırak, Türkiye'de üretici de tüketici de kuruşu kuruşuna sayar. Sen sıfır sermayeyle başlıyorsan, aracı platforma mahkum olma, mahallene in. İlk adımın şu olsun: Yanındaki üç beş bakkala git, onların stantlarını telefona çek, fiyatlarını sor.",
+      "metin": "Doğru söylüyorsun, lojistik parasız dolaşmaz; o yüzden ben mesela Beykoz'daki mobilya atölyelerinin hurda kolilerini karşılıksız toplarım, ikametgahımdan dağıtırım. İlk haftada yalnızca aynı sokaktaki üç e-ticariyle çay sohbetinde anlaşma yapmam yeterli, büyük fabrika zorunluluğu yok bu işte.",
       "model": "qwen/qwen3.8-27b",
       "yedek": false
     },
@@ -45,7 +45,7 @@
       "kim": "gemini",
       "ad": "Gemini",
       "rol": "Hevesli girişimci",
-      "metin": "Esnaf haklı, lojistik ve reklam masrafına boğulmadan en doğrusu fabrikadaki veya mahalledeki hazır çevreye odaklanmak. Kendi çalıştığımız iş yerindeki arkadaşlara ya da apartman grubuna sadece zeytinyağı veya salça gibi 2-3 temel ürünü üreticisinden toptan fiyatına bağlayıp yüzde 20 kârla sunarız. Hafta içi ön siparişi telefondan toplar, hafta sonu tek seferde elden teslim ederiz; sıfır reklam maliyetiyle ilk haftadan net nakit döner.",
+      "metin": "Aynen öyle, çözümü büyütmeden kendi mahallemizde tutacağız. Vardiya çıkışında yakındaki esnaftan WhatsApp üzerinden siparişi alıp, yürüyüş mesafesindeki satıcıya aynı gün elden teslim ederiz. Ne depo masrafı çıkar ne de benzin parası; sıfır riskle ilk haftadan nakit akışı sağlarız.",
       "model": "gemini-flash-latest",
       "yedek": false
     },
@@ -53,7 +53,7 @@
       "kim": "gpt",
       "ad": "GPT",
       "rol": "Şüpheci yatırımcı",
-      "metin": "Komisyon %20 dediğin, üreticinin hâlâ %30‑40 kar marjı bırakıp satması gerçekçi mi? Lojistik (nakliye, paketleme) ve ödeme entegrasyonu için en az 5 000 TL başlangıç harcaması gerekir; bu hafta bir siparişle geri dönüş nasıl sağlanacak? Benzer yerel platformlar hâlâ düşük ölçekli ve kâr marjı sıkıntısı yaşıyor. Şu an yatırım için net bir geri dönüş planı göremiyorum.",
+      "metin": "Bu modelde toplama ve dağıtım için hâlâ bir maliyet var; kimse ücretsiz taşımaz, yakıt ve zaman karşılığı talep eder. İlk hafta sadece birkaç küçük satıcıyı kapsarsa, gelir düşük, geri dönüş 1‑2 ay içinde bile zor olur. Şu an yatırım yapmam, önce net lojistik maliyet hesabı ve ölçeklenebilir bir kar marjı görmek istiyorum.",
       "model": "openai/gpt-oss-120b",
       "yedek": false
     },
@@ -61,23 +61,23 @@
       "kim": "esnaf",
       "ad": "Qwen",
       "rol": "Sahadaki esnaf",
-      "metin": "Toplu nakliye derdi falan yok, senin naklin telefonun. Apartman grubunda ilk elli kişiyi topluyorsun, üreticiye gidip kapıda ödeme yapıyorsun. Komisyonun ne olursa olsun, sen emeğinle, tanıdığın güveniyle alıyorsun. Parayı elden al, üreticiye elden ver, aradaki fark senin sermayen. İlk ayda kâr değil, çevreni ısındırmaya bak.",
+      "metin": "Abi, yakıt parası da var ama biz telefonda siparişi toplayıp marketten alıp dolaba bırakıyoruz, bu sıfır nakit maliyet. İlk ayda on koli satarım yeter, sonra ölçekleriz.",
       "model": "qwen/qwen3.8-27b",
       "yedek": false
     }
   ],
   "gundem": [
-    "Yeni Partili Sümer'den ekonomi tepkisi: 'Çiftçi üretimden çekiliyor, işçiler geçinemiyor' - Evrensel",
-    "MHP’den Diyarbakır’da esnaf ziyareti - Tigris Haber",
-    "Ekonomi, jeopolitiğin önünde olmaya devam edecek mi? - Investing.com Türkiye",
-    "GTA 6 yeni bir ekonomi yarattı: Küçük kanallar bile binlerce dolar kazanıyor - CNBC-e",
-    "Güçlü dolar satış baskısını güçlendirdi: Altın ve gümüş değer kaybetti - Sabah",
-    "Rusya Ukrayna’nın enerji ve liman altyapı tesislerini vurdu - Bloomberght",
-    "Hasanbey Caddesi’nin 46 Yıllık Tanığı Gidiyor: Bir Esnaf Daha Kepenk İndiriyor - Gümüşkoza Gazetesi",
-    "Bakan Bolat: Halkbank esnafa 25 milyar liralık kredi musluğunu açıyor - Ekonomi Gazetesi",
-    "Büyükşehir’in Destekleriyle Mersinli Üretici Kadınlar E-Ticaret Eğitimi Aldı - Habere Güven",
-    "Ticaret Bakanlığı’ndan zincir markete ceza! ’Hep Ucuz’ sloganı pahalıya patladı - Yeni Asır",
-    "A330 filosuna premium ekonomi sınıfı geliyor - AirportHaber",
-    "\"Emlakçılar konut gösterimi için ücret talep edemez\" uyarısı - Habertürk"
+    "KOSGEB’DEN KOBİ’LERİN YEŞİL DÖNÜŞÜMÜNE 3 MİLYAR TL’LİK DESTEK - Kosgeb",
+    "KOBİ’lere 7 milyon liraya kadar faizsiz ‘dönüşüm kredisi’ - Ekonomim",
+    "Ticaret Bakanı Ömer Bolat, Kadın Kooperatiflerini E-Ticaret Yoluyla Destekleme Protokolü Tanıtım Töreni'nde Konuştu - T.C. Ticaret Bakanlığı",
+    "KOBİ’lere 7 milyon TL'ye kadar faizsiz destek müjdesi! Bakan Kacır açıkladı - Uzmanpara",
+    "KOSGEB İstihdam Taahhütlü KOBİ Finansman Destek Programı Webinarına davet - Kocaeli Ticaret Odası",
+    "Ticaret Bakanlığı e-ticaret platformlarını yasaklı ürünlerin yeniden satışı konusunda uyardı - Anadolu Ajansı",
+    "73 KADIN GİRİŞİMCİLİK YOLUNDA İLK ADIMINI ATTI - Esenler Belediyesi",
+    "Beşiktaş'ta tabelalar söküldü, esnaf tepki gösterdi. Söküm gerekçesi görüntü kirliliği - NTV Haber",
+    "Burgan Bank, ONx Ventures ile girişimcilik ekosistemini büyütüyor - Fintechtime",
+    "KOBİ'lere 3 milyar liralık yeşil dönüşüm desteği - Bloomberght",
+    "Gürsel Tekin’e dert yanan esnaf: “Esnaf olarak bu pahalılıktan hiç memnun değilim” - Anka Haber",
+    "Bakan Bolat’tan esnaf teşkilatlarına destek mesajı - Bigpara"
   ]
 }
