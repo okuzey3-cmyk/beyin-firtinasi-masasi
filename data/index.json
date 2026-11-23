@@ -1,6 +1,13 @@
 {
   "gunler": [
     {
+      "tarih": "2026-11-23",
+      "baslik": "İkinci El Koli Tedariki",
+      "tek_cumle": "Mahalledeki küçük satıcılara ücretsiz topladığınız ikinci el kolileri düşük fiyata temizleyip satmak.",
+      "gerceklik_puani": 5,
+      "karar": "Şartlı evet"
+    },
+    {
       "tarih": "2026-11-22",
       "baslik": "Kooperatif Hediyelik Paketleme",
       "tek_cumle": "Kadın kooperatiflerinin doğal ürünlerini, yılbaşı öncesi KOBİ’lere özel hikayeli hediye paketleri olarak satmak.",
@@ -8,5 +15,5 @@
       "karar": "Şartlı evet"
     }
   ],
-  "guncelleme": "2026-11-22T15:28+03:00"
+  "guncelleme": "2026-11-23T12:39+03:00"
 }

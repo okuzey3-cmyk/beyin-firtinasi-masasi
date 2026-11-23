@@ -1,0 +1,83 @@
+{
+  "tarih": "2026-11-23",
+  "olusturma": "2026-11-23T12:39+03:00",
+  "karar": {
+    "baslik": "İkinci El Koli Tedariki",
+    "tek_cumle": "Mahalledeki küçük satıcılara ücretsiz topladığınız ikinci el kolileri düşük fiyata temizleyip satmak.",
+    "nasil_para_kazanir": "Koli başına düşük bir fiyat belirleyerek temizlik ve taşıma maliyetlerini karşılayıp kâr marjı elde eder, toplu alımlarda indirim sağlar.",
+    "kime_satilir": "Küçük e‑ticaret satıcıları, butik dükkanlar ve yerel esnaflar.",
+    "baslangic_sermayesi": "1.000 - 3.000 TL",
+    "ilk_adim": "Mahalledeki 2‑3 esnaftan ücretsiz kolileri toplayıp temizlik yaparak WhatsApp üzerinden ilk siparişi al ve el arabasıyla teslim et.",
+    "en_buyuk_risk": "Temizlik ve taşıma maliyetlerinin tahmin edilenden yüksek çıkması kârı eritebilir.",
+    "masanin_ortak_noktasi": "Ücretsiz koli toplama mümkün ancak taşıma ve temizlik maliyetleri göz ardı edilemez.",
+    "gerceklik_puani": 5,
+    "puan_gerekcesi": "Maliyet ve ölçekleme belirsizliği düşük bir uygulanabilirlik puanı getiriyor.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Küçük e-ticaret satıcılarına ve butiklere temiz ikinci el koli ve ambalaj tedariki yapalım. Çevredeki marketlerden ücretsiz toplayacağımız sağlam kolileri, ambalaj masrafı artan yerel satıcılara sıfırının yarı fiyatına paket olarak satarız. Sıfır sermayeyle hemen bu hafta sonu mahalledeki satıcıları gezerek ilk siparişleri toplayabiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu iş modelinde gerçekten “sıfır sermaye” mi? Koli toplama, temizleme, taşıma ve depolama masrafları nasıl karşılanacak? Rekabetçi fiyatla satarken kâr marjı ne kadar olacak ve bu hafta sonu hedeflenen satış miktarı gerçekçi mi?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Koli toplamak bedava ama taşıma için çuval ve tramer lazım, bu da cebinden çıkar. Sende elinde üç beş koliyle pazar yapamazsın, nakliye masrafı kârını yutar.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Haklısın abi, o yüzden ilk başta araçla gezmek yerine sadece kendi caddemizdeki esnafa odaklanacağız. Butiklerin ihtiyacını WhatsApp'tan alıp, aynı sokaktaki eczane veya marketlerden sipariş kadar temiz koliyi el arabasıyla hemen taşıyacağız. Ne depo ne benzin masrafı çıkar; doğrudan mahalle içi mikro aracılıkla başlarız.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu planın “sıfır maliyet” iddiası hâlâ belirsiz; temizlik, taşıma ve paketleme için ne kadar harcama yapacaksınız? İlk hafta kaç koli satmayı hedefliyorsunuz ve bu satıştan elde edeceğiniz net kâr yüzde kaç olacak? Rekabetçi fiyatla sürdürülebilir bir ölçekleme nasıl sağlanacak?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Elinde üç koliyle kargoyu sen mi taşıyacaksın, yoksa kuryeye mi vereceksin? Bu işi büyütmek istiyorsan mahalle arası değil, semt pazarı gibi yoğun noktalara odaklan ki çuval başı kârın makul olsun.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": [
+    "KOBİ’lere 7 milyon liraya kadar faizsiz ‘dönüşüm kredisi’ - Ekonomim",
+    "Ticaret Bakanı Ömer BOLAT, TESKOMB Esnaf Kooperatifleri Delegeler Toplantısı'nda konuştu - T.C. Ticaret Bakanlığı",
+    "KOSGEB’DEN SEL VE TAŞKIN FELAKETLERİNDEN ETKİLENEN KOBİ’LERE FAİZ/KÂR PAYI DESTEĞİ - Kosgeb",
+    "KOSGEB İstihdam Taahhütlü KOBİ Finansman Destek Programı Webinarına davet - Kocaeli Ticaret Odası",
+    "Ticaret Bakanlığı e-ticaret platformlarını yasaklı ürünlerin yeniden satışı konusunda uyardı - Anadolu Ajansı",
+    "73 KADIN GİRİŞİMCİLİK YOLUNDA İLK ADIMINI ATTI - Esenler Belediyesi",
+    "Aydın Esnaf ve Sanatkârlar Odaları Birliği Başkanı Sayın Muhammet Ali Künkcü ve beraberindeki yönetim kurulu üyeleri, İl Müdürümüz İlkay Türkoğlu’nu makamında ziyaret - Aile ve Sosyal Hizmetler Bakanlığı",
+    "KOSGEB’den KOBİ’lere 3 Milyar Lira Yeşil Destek - Alomaliye",
+    "Beşiktaş'ta tabelalar söküldü, esnaf tepki gösterdi. Söküm gerekçesi görüntü kirliliği - NTV Haber",
+    "BÜYÜKŞEHİRDEN DİJİTAL PAZARLAMA VE E-TİCARET EĞİTİMİ - Ordu Büyükşehir Belediyesi",
+    "Burgan Bank, ONx Ventures ile girişimcilik ekosistemini büyütüyor - Fintechtime",
+    "Kocaeli Sanayi Odası e-ticaret buluşmasına ev sahipliği yaptı - Ekonomi Gazetesi"
+  ]
+}
