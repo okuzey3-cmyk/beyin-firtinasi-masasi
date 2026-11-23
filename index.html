@@ -73,6 +73,22 @@
         background:transparent;color:var(--ink);font:600 15px var(--sans);cursor:pointer}
   .more:active{transform:scale(.99)}
 
+  .question{margin:16px 0 4px;padding:14px 16px;border-radius:14px;background:var(--paper);border:1px solid var(--line);
+            font-size:15px;color:var(--ink2);font-style:italic}
+  .opts{display:flex;flex-direction:column;gap:12px}
+  .opt{padding:18px 18px 16px}
+  .opt .top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .opt .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;
+          background:var(--line);color:var(--ink2);flex:none}
+  .opt.best .n{background:var(--claude);color:#fff}
+  .opt h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .opt .tag{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--claude)}
+  .opt p{font-size:15px;color:var(--ink2)}
+  .opt .pm{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;margin-top:12px;font-size:14px}
+  .opt .pm i{font-style:normal;font-weight:700}
+  .opt .pm .p{color:var(--llama)} .opt .pm .m{color:var(--gpt)}
+  .arc .k{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+          color:var(--claude);margin-right:6px}
   .chair{padding:22px 20px;margin-top:22px;border-left:3px solid var(--claude);border-radius:6px 20px 20px 6px}
   .chair .who{font-size:13px;color:var(--ink3);margin-bottom:8px}
   .chair .who b{color:var(--ink);font-weight:600}
@@ -145,27 +161,44 @@ function render(day, index){
       <div><div class="who"><b>${esc(m.ad)}</b> <span>· ${esc(m.rol)}${m.yedek?' · yedek oyuncu konuştu':''}</span></div>
       <div class="bubble">${esc(m.metin)}</div></div></div>`;
   }).join('');
-  const arc=(index.gunler||[]).map(g=>{const d=parse(g.tarih);return `
-    <a class="arc ${g.tarih===day.tarih?'on':''}" href="#${g.tarih}">
+  const did=day.id||day.tarih, soru=day.tur==='soru';
+  const arc=(index.gunler||[]).map(g=>{const d=parse(g.tarih), gid=g.id||g.tarih;return `
+    <a class="arc ${gid===did?'on':''}" href="#${gid}">
       <div class="d"><b>${d.getDate()}</b>${AYLAR[d.getMonth()].slice(0,3)}</div>
-      <div class="t"><b>${esc(g.baslik)}</b><span>${esc(g.tek_cumle)}</span></div>
+      <div class="t"><b>${g.tur==='soru'?'<span class="k">Soru</span>':''}${esc(g.baslik)}</b><span>${esc(g.tek_cumle)}</span></div>
       <div class="s">${g.gerceklik_puani??''}</div></a>`}).join('');
 
   app.innerHTML=`
   <div class="hero fade">
-    <div class="eyebrow">Günün fikri · ${uzun(day.tarih)}</div>
+    <div class="eyebrow">${soru?'Masaya sorduğun soru':'Günün fikri'} · ${uzun(day.tarih)}</div>
+    ${soru?`<div class="question">“${esc(day.soru)}”</div>`:''}
     <h1>${esc(k.baslik)}</h1>
     <p class="lead">${esc(k.tek_cumle)}</p>
     <div class="verdict">${ring(k.gerceklik_puani)}
       <div><div class="v1">${esc(k.karar)}</div><div class="v2">Gerçeklik puanı</div></div></div>
   </div>
+  ${soru?`
+  <section style="margin-top:8px">
+    <div class="sec-head"><h2>Masanın önerdikleri</h2><span>${(k.secenekler||[]).length} seçenek</span></div>
+    <div class="opts">${(k.secenekler||[]).map((o,i)=>`
+      <div class="card opt ${i===0?'best':''}">
+        <div class="top"><span class="n">${i+1}</span><h3>${esc(o.ad)}</h3>${i===0?'<span class="tag">Tavsiye</span>':''}</div>
+        <p>${esc(o.aciklama)}</p>
+        <div class="pm"><i class="p">+</i><span>${esc(o.arti)}</span><i class="m">−</i><span>${esc(o.eksi)}</span></div>
+      </div>`).join('')}</div>
+  </section>
+  <div class="card facts fade" style="margin-top:22px">
+    ${fact('Masanın tavsiyesi',k.tavsiye,'wide')}
+    ${fact('En büyük risk',k.en_buyuk_risk,'wide')}
+    ${fact('Bu hafta ilk adım',k.ilk_adim,'wide step')}
+  </div>`:`
   <div class="card facts fade">
     ${fact('Nasıl para kazanır',k.nasil_para_kazanir)}
     ${fact('Kime satılır',k.kime_satilir)}
     ${fact('Başlangıç sermayesi',k.baslangic_sermayesi)}
     ${fact('En büyük risk',k.en_buyuk_risk)}
     ${fact('Bu hafta ilk adım',k.ilk_adim,'wide step')}
-  </div>
+  </div>`}
   <section>
     <div class="sec-head"><h2>Masada neler konuşuldu</h2><span>${t.length} konuşma</span></div>
     <div class="chat" id="chat">${msgs}</div>
@@ -175,7 +208,7 @@ function render(day, index){
       <p>${esc(k.masanin_ortak_noktasi)} ${esc(k.puan_gerekcesi)}</p>
     </div>
   </section>
-  ${(index.gunler||[]).length>1?`<section><div class="sec-head"><h2>Önceki sabahlar</h2><span>${index.gunler.length} fikir</span></div>
+  ${(index.gunler||[]).length>1?`<section><div class="sec-head"><h2>Önceki toplantılar</h2><span>${index.gunler.length} kayıt</span></div>
     <div class="card archive">${arc}</div></section>`:''}`;
   const more=document.getElementById('more');
   if(more) more.onclick=()=>{document.querySelectorAll('.msg.hidden').forEach(e=>e.classList.remove('hidden'));more.remove();};
@@ -191,8 +224,8 @@ async function load(){
     const index=await (await fetch('data/index.json?'+Date.now())).json();
     if(!index.gunler||!index.gunler.length) return empty();
     const want=location.hash.slice(1);
-    const pick=index.gunler.find(g=>g.tarih===want)||index.gunler[0];
-    const day=await (await fetch(`data/${pick.tarih}.json?`+Date.now())).json();
+    const pick=index.gunler.find(g=>(g.id||g.tarih)===want)||index.gunler[0];
+    const day=await (await fetch(`data/${pick.id||pick.tarih}.json?`+Date.now())).json();
     render(day,index); window.scrollTo({top:0});
   }catch(e){ empty(); }
 }

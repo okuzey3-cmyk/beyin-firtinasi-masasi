@@ -286,6 +286,17 @@ KURALLAR = """MASANIN KURALLARI (herkes uyar):
 - Kendi adını ya da rolünü cümlenin başına yazma, doğrudan konuş."""
 
 
+SORU = os.environ.get("SORU", "").strip()
+
+KURALLAR_SORU = """MASANIN KURALLARI (herkes uyar):
+- Bugün masaya bir soru getirildi; iş fikri değil, BU SORU tartışılıyor.
+- GERÇEKÇİ ol. Hayal satmak, abartılı başarı vaadi yasak.
+- Soran kişinin durumu: tek başına, kod bilmiyor, işini telefondan yönetiyor; kodu onun yerine bir yapay zeka asistanı yazıyor. Bütçe sıfıra yakın. Öneriler bu şartlarda gerçekten yapılabilir olmalı.
+- Somut ol: isim, örnek, benzer başarılı ürünler ve neden işe yaradıkları.
+- Türkçe konuş. Sohbet eder gibi, kısa konuş: en fazla 4 cümle (70 kelimeyi geçme). Başlık, madde işareti, emoji kullanma.
+- Kendi adını ya da rolünü cümlenin başına yazma, doğrudan konuş."""
+
+
 def gundem():
     """Güncel Türkiye ekonomi/iş haber başlıkları (tartışmaya gerçeklik zemini)."""
     url = ("https://news.google.com/rss/search?q=" + urllib.parse.quote("girişimcilik OR KOBİ OR e-ticaret OR esnaf OR \"yan gelir\" OR \"yeni iş\" when:7d")
@@ -305,7 +316,7 @@ def gecmis_basliklar(n=40):
     try:
         with open(os.path.join(DATA, "index.json"), encoding="utf-8") as f:
             idx = json.load(f)
-        return [d.get("baslik", "") for d in idx.get("gunler", [])][:n]
+        return [d.get("baslik", "") for d in idx.get("gunler", []) if d.get("tur") != "soru"][:n]
     except Exception:
         return []
 
@@ -349,7 +360,34 @@ def speak(seat_key, system, messages, arama=False):
     raise RuntimeError(f"Masada kimse cevap veremedi: {last}")
 
 
+def toplanti_soru(today):
+    baglam = f"Bugün: {today}.\nMasaya getirilen soru: \"{SORU}\"\n"
+    order = ORDER + ["gemini", "gpt", "esnaf"]
+    turns = []
+    for i, key in enumerate(order):
+        seat = SEATS[key]
+        system = f"Sen 'Beyin Fırtınası Masası' adlı bir tartışma masasında oturuyorsun. Rolün: {seat['rol']}. {seat['karakter']}\n\n{KURALLAR_SORU}"
+        if i == 0:
+            prompt = (baglam + "\nTartışmayı sen açıyorsun. Gerekirse internette araştır (benzer ürünler, ne tutuyor, ne tutmuyor). "
+                      "Soruya 2-3 somut seçenekle cevap ver ve hangisini savunduğunu söyle.")
+        else:
+            prompt = (baglam + "\nŞimdiye kadarki konuşma:\n\n" + transcript_text(turns) +
+                      "\n\nSıra sende. Bir önceki konuşmacıya doğrudan cevap ver; seçenekleri eleştir, iyileştir ya da daha iyisini öner.")
+            if i >= len(order) - 3:
+                prompt += " Tartışma bitmek üzere, hangi seçeneği desteklediğini net söyle."
+        text, model, yedek = speak(key, system, [{"role": "user", "content": prompt}], arama=(i == 0))
+        if key == "esnaf" and not yedek:
+            seat["ad"] = model_adi(model)
+        turns.append({"kim": key, "ad": seat["ad"], "rol": seat["rol"], "metin": text,
+                      "model": model, "yedek": yedek})
+        log(f"[{seat['ad']}] {text[:80]}...")
+        time.sleep(4)
+    return turns, []
+
+
 def toplanti(today):
+    if SORU:
+        return toplanti_soru(today)
     haber = gundem()
     gecmis = gecmis_basliklar()
     baglam = f"Bugün: {today}.\n"
@@ -400,12 +438,31 @@ KARAR_SEMA = """{
 }"""
 
 
+KARAR_SEMA_SORU = """{
+  "baslik": "Masanın cevabının kısa başlığı (en fazla 7 kelime)",
+  "tek_cumle": "Masanın soruya tek cümlelik cevabı",
+  "secenekler": [
+    {"ad": "Seçeneğin adı", "aciklama": "Ne olduğu, 1-2 cümle", "arti": "En güçlü yanı, 1 cümle", "eksi": "En zayıf yanı, 1 cümle"}
+  ],
+  "tavsiye": "Masanın seçtiği seçenek ve neden, 2 cümle",
+  "ilk_adim": "Bu hafta atılabilecek somut ilk adım, 1-2 cümle",
+  "en_buyuk_risk": "1 cümle",
+  "masanin_ortak_noktasi": "Herkesin hemfikir olduğu nokta, 1 cümle",
+  "gerceklik_puani": 7,
+  "puan_gerekcesi": "Tavsiye edilen seçeneğin yapılabilirlik puanının gerekçesi, 1 cümle",
+  "karar": "SADECE şu üçünden biri: 'Denemeye değer', 'Şartlı evet', 'Uzak dur'"
+}
+(secenekler listesinde tartışmada konuşulan en iyi 3 seçenek olsun, tavsiye edilen ilk sırada.)"""
+
+
 def karar(turns, today):
     system = ("Sen 'Beyin Fırtınası Masası'nın tarafsız başkanısın. Tartışmayı dinledin; şimdi karar raporunu yazıyorsun. "
               "Abartma, tartışmada çıkan itirazları dürüstçe yansıt. Gerçeklik puanı 1-10 arasında bir tam sayıdır "
               "(10 = yarın başlanabilir ve iş görür). Türkçe yaz.")
-    prompt = (f"Tarih: {today}\n\nTartışma:\n\n{transcript_text(turns)}\n\n"
-              f"Sadece aşağıdaki şemaya uyan geçerli bir JSON döndür, başka hiçbir şey yazma:\n{KARAR_SEMA}")
+    sema = KARAR_SEMA_SORU if SORU else KARAR_SEMA
+    soru = f"Masaya getirilen soru: {SORU}\n\n" if SORU else ""
+    prompt = (f"Tarih: {today}\n\n{soru}Tartışma:\n\n{transcript_text(turns)}\n\n"
+              f"Sadece aşağıdaki şemaya uyan geçerli bir JSON döndür, başka hiçbir şey yazma:\n{sema}")
     msgs = [{"role": "user", "content": prompt}]
     # Fikri Gemini açtığı için tarafsızlık adına başkanlık önce Claude'da, yoksa GPT'de
     sources = [("claude", "Claude", ask_claude), ("gpt", "GPT", ask_gpt), ("gemini", "Gemini", ask_gemini)]
@@ -430,9 +487,12 @@ def karar(turns, today):
 
 def kaydet(today, turns, rapor, haber):
     os.makedirs(DATA, exist_ok=True)
-    kayit = {"tarih": today, "olusturma": datetime.now(TR).isoformat(timespec="minutes"),
+    simdi = datetime.now(TR)
+    kid = f"soru-{today}-{simdi.strftime('%H%M')}" if SORU else today
+    kayit = {"id": kid, "tur": "soru" if SORU else "fikir", "soru": SORU, "tarih": today,
+             "olusturma": simdi.isoformat(timespec="minutes"),
              "karar": rapor, "tartisma": turns, "gundem": haber}
-    with open(os.path.join(DATA, f"{today}.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(DATA, f"{kid}.json"), "w", encoding="utf-8") as f:
         json.dump(kayit, f, ensure_ascii=False, indent=2)
 
     path = os.path.join(DATA, "index.json")
@@ -441,27 +501,32 @@ def kaydet(today, turns, rapor, haber):
             idx = json.load(f)
     except Exception:
         idx = {"gunler": []}
-    idx["gunler"] = [d for d in idx["gunler"] if d.get("tarih") != today]
-    idx["gunler"].insert(0, {"tarih": today, "baslik": rapor.get("baslik", ""),
+    idx["gunler"] = [d for d in idx["gunler"] if (d.get("id") or d.get("tarih")) != kid]
+    idx["gunler"].insert(0, {"id": kid, "tur": kayit["tur"], "tarih": today, "olusturma": kayit["olusturma"],
+                             "baslik": rapor.get("baslik", ""),
                              "tek_cumle": rapor.get("tek_cumle", ""),
                              "gerceklik_puani": rapor.get("gerceklik_puani"),
                              "karar": rapor.get("karar", "")})
-    idx["gunler"].sort(key=lambda d: d["tarih"], reverse=True)
+    idx["gunler"].sort(key=lambda d: d.get("olusturma") or d["tarih"], reverse=True)
     idx["guncelleme"] = kayit["olusturma"]
     with open(path, "w", encoding="utf-8") as f:
         json.dump(idx, f, ensure_ascii=False, indent=2)
+    return kid
 
 
 def main():
     today = datetime.now(TR).strftime("%Y-%m-%d")
-    log("Masa toplanıyor:", today)
+    log("Masa toplanıyor:", today, f"(SORU: {SORU})" if SORU else "(günün fikri)")
     log("Gemini anahtarı:", "var" if GEMINI_KEY else "YOK (yerine yedek oturacak)")
     log("Groq anahtarı:", "var" if GROQ_KEY else "YOK (GPT ve Llama yerine yedek oturacak)")
     log("Claude anahtarı:", "var" if CLAUDE_KEY else "yok (başkanlığı GPT yapacak)")
     turns, haber = toplanti(today)
     rapor = karar(turns, today)
-    kaydet(today, turns, rapor, haber)
+    kid = kaydet(today, turns, rapor, haber)
     log("Bitti:", rapor.get("baslik"))
+    if os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            f.write(f"kayit={kid}\n")
 
 
 if __name__ == "__main__":

@@ -10,6 +10,11 @@ on:
     - cron: "47 6 * * *"   # 09:47
     - cron: "27 9 * * *"   # 12:27
   workflow_dispatch:       # Elle de başlatılabilir
+    inputs:
+      soru:
+        description: "Masaya sormak istediğin soru (boş bırakırsan günün iş fikri tartışılır)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -40,8 +45,10 @@ jobs:
           fi
 
       - name: Masa toplanıyor
+        id: masa
         if: steps.kontrol.outputs.atla != '1'
         env:
+          SORU: ${{ github.event.inputs.soru }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -53,23 +60,25 @@ jobs:
           git config user.name "Beyin Fırtınası Masası"
           git config user.email "masa@users.noreply.github.com"
           git add data/
-          git diff --cached --quiet || git commit -m "Sabah toplantısı: $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "Masa toplantısı: ${{ steps.masa.outputs.kayit }}"
           git push
 
       - name: Telefona bildirim gönder
         if: steps.kontrol.outputs.atla != '1'
         env:
-          BUGUN: ${{ steps.kontrol.outputs.bugun }}
+          KAYIT: ${{ steps.masa.outputs.kayit }}
         run: |
           python3 - <<'PY' || true
           import json, os, urllib.request
-          k = json.load(open(f"data/{os.environ['BUGUN']}.json"))["karar"]
+          kid = os.environ['KAYIT']
+          d = json.load(open(f"data/{kid}.json")); k = d["karar"]
+          soru = d.get("tur") == "soru"
           mesaj = {
               "topic": "beyin-masasi-70025e1c",
-              "title": "Günün fikri: " + k.get("baslik", ""),
+              "title": ("Masanın cevabı hazır: " if soru else "Günün fikri: ") + k.get("baslik", ""),
               "message": f"{k.get('tek_cumle','')}\n\nGerçeklik: {k.get('gerceklik_puani','?')}/10 · {k.get('karar','')}",
               "tags": ["bulb"],
-              "click": "https://okuzey3-cmyk.github.io/beyin-firtinasi-masasi/",
+              "click": "https://okuzey3-cmyk.github.io/beyin-firtinasi-masasi/#" + kid,
           }
           req = urllib.request.Request("https://ntfy.sh", data=json.dumps(mesaj).encode(),
                                        headers={"Content-Type": "application/json"})
