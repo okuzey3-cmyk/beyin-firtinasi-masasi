@@ -310,6 +310,19 @@ def gecmis_basliklar(n=40):
         return []
 
 
+ALANLAR = [
+    "yemek ve gıda", "hizmet ve tamir işleri", "eğitim ve özel ders", "evcil hayvan", "yaşlı ve çocuk bakımı",
+    "dijital hizmet ve sosyal medya", "el emeği ve üretim", "tarım ve bahçe", "temizlik ve ev hizmetleri",
+    "otomotiv ve ulaşım", "giyim ve aksesuar", "turizm ve gezi", "spor ve sağlıklı yaşam", "geri dönüşüm ve ikinci el",
+    "etkinlik ve organizasyon", "mahalle esnafına destek hizmetleri",
+]
+
+
+def gunun_alani(today):
+    d = datetime.strptime(today, "%Y-%m-%d")
+    return ALANLAR[d.toordinal() % len(ALANLAR)]
+
+
 def transcript_text(turns):
     return "\n\n".join(f"{t['ad']} ({t['rol']}): {t['metin']}" for t in turns)
 
@@ -343,7 +356,9 @@ def toplanti(today):
     if haber:
         baglam += "Son günlerin Türkiye gündeminden başlıklar (fikre ilham olabilir, zorunlu değil):\n- " + "\n- ".join(haber) + "\n"
     if gecmis:
-        baglam += "Daha önce masada konuşulan fikirler (bunları TEKRARLAMA, farklı bir alan seç):\n- " + "\n- ".join(gecmis) + "\n"
+        baglam += ("Daha önce masada konuşulan fikirler. Bunlara BENZEYEN hiçbir fikir getirme "
+                   "(aynı ürün, aynı müşteri ya da aynı iş modeli olmasın):\n- " + "\n- ".join(gecmis) + "\n")
+    baglam += f"Bugünün alanı: {gunun_alani(today)}. Fikir bu alandan olmalı.\n"
 
     turns = []
     for i, key in enumerate(ORDER):
