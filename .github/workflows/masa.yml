@@ -2,7 +2,13 @@ name: Sabah Toplantısı
 
 on:
   schedule:
-    - cron: "7 4 * * *"   # Her gün 07:07 (Türkiye saati)
+    # GitHub zamanlayıcısı bazen gecikiyor ya da atlıyor; bu yüzden sabah birkaç kez deniyor.
+    # O günün toplantısı zaten yapıldıysa sonraki denemeler hiçbir şey yapmadan çıkar.
+    - cron: "7 4 * * *"    # 07:07
+    - cron: "37 4 * * *"   # 07:37
+    - cron: "17 5 * * *"   # 08:17
+    - cron: "47 6 * * *"   # 09:47
+    - cron: "27 9 * * *"   # 12:27
   workflow_dispatch:       # Elle de başlatılabilir
 
 permissions:
@@ -23,7 +29,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Bugün toplantı yapıldı mı?
+        id: kontrol
+        run: |
+          BUGUN=$(TZ=Europe/Istanbul date +%Y-%m-%d)
+          echo "bugun=$BUGUN" >> $GITHUB_OUTPUT
+          if [ -f "data/$BUGUN.json" ] && [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "Bugünün toplantısı zaten yapılmış, atlanıyor."
+            echo "atla=1" >> $GITHUB_OUTPUT
+          fi
+
       - name: Masa toplanıyor
+        if: steps.kontrol.outputs.atla != '1'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -31,9 +48,30 @@ jobs:
         run: python masa.py
 
       - name: Sonucu kaydet
+        if: steps.kontrol.outputs.atla != '1'
         run: |
           git config user.name "Beyin Fırtınası Masası"
           git config user.email "masa@users.noreply.github.com"
           git add data/
           git diff --cached --quiet || git commit -m "Sabah toplantısı: $(date -u +%Y-%m-%d)"
           git push
+
+      - name: Telefona bildirim gönder
+        if: steps.kontrol.outputs.atla != '1'
+        env:
+          BUGUN: ${{ steps.kontrol.outputs.bugun }}
+        run: |
+          python3 - <<'PY' || true
+          import json, os, urllib.request
+          k = json.load(open(f"data/{os.environ['BUGUN']}.json"))["karar"]
+          mesaj = {
+              "topic": "beyin-masasi-70025e1c",
+              "title": "Günün fikri: " + k.get("baslik", ""),
+              "message": f"{k.get('tek_cumle','')}\n\nGerçeklik: {k.get('gerceklik_puani','?')}/10 · {k.get('karar','')}",
+              "tags": ["bulb"],
+              "click": "https://okuzey3-cmyk.github.io/beyin-firtinasi-masasi/",
+          }
+          req = urllib.request.Request("https://ntfy.sh", data=json.dumps(mesaj).encode(),
+                                       headers={"Content-Type": "application/json"})
+          print(urllib.request.urlopen(req, timeout=20).status)
+          PY
