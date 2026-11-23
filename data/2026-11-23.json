@@ -1,17 +1,17 @@
 {
   "tarih": "2026-11-23",
-  "olusturma": "2026-11-23T12:39+03:00",
+  "olusturma": "2026-11-23T12:40+03:00",
   "karar": {
-    "baslik": "İkinci El Koli Tedariki",
-    "tek_cumle": "Mahalledeki küçük satıcılara ücretsiz topladığınız ikinci el kolileri düşük fiyata temizleyip satmak.",
-    "nasil_para_kazanir": "Koli başına düşük bir fiyat belirleyerek temizlik ve taşıma maliyetlerini karşılayıp kâr marjı elde eder, toplu alımlarda indirim sağlar.",
-    "kime_satilir": "Küçük e‑ticaret satıcıları, butik dükkanlar ve yerel esnaflar.",
-    "baslangic_sermayesi": "1.000 - 3.000 TL",
-    "ilk_adim": "Mahalledeki 2‑3 esnaftan ücretsiz kolileri toplayıp temizlik yaparak WhatsApp üzerinden ilk siparişi al ve el arabasıyla teslim et.",
-    "en_buyuk_risk": "Temizlik ve taşıma maliyetlerinin tahmin edilenden yüksek çıkması kârı eritebilir.",
-    "masanin_ortak_noktasi": "Ücretsiz koli toplama mümkün ancak taşıma ve temizlik maliyetleri göz ardı edilemez.",
+    "baslik": "Kendi Kendine Kes Fidan Koruma Kiti",
+    "tek_cumle": "Hobi bahçesi sahiplerine, farklı boylardaki fidanları dondan korumak için rulo örtü, mandal ve jüt ipi içeren kendin yap kitleri satmak.",
+    "nasil_para_kazanir": "Ürün satış fiyatı üzerinden %30‑%40 kâr marjı hedeflenir; düşük ağırlıklı paketler sayesinde nakliye maliyeti de düşük tutulur.",
+    "kime_satilir": "Kış aylarında hobi bahçesi, müstakil ev ve küçük tarım alanı sahipleri.",
+    "baslangic_sermayesi": "2.000 - 5.000 TL",
+    "ilk_adim": "Mahalledeki 5‑10 bahçıvanı ziyaret edip ihtiyacı teyit edin ve onlardan bir ön sipariş alın.",
+    "en_buyuk_risk": "Talebin gerçek olmaması ve stok maliyetinin geri dönmemesi.",
+    "masanin_ortak_noktasi": "Ürünün maliyet, talep ve lojistik konularında önceden kanıt ve test yapılması gerektiği.",
     "gerceklik_puani": 5,
-    "puan_gerekcesi": "Maliyet ve ölçekleme belirsizliği düşük bir uygulanabilirlik puanı getiriyor.",
+    "puan_gerekcesi": "İhtiyaç var ama kanıt eksik ve operasyonel riskler yüksek.",
     "karar": "Şartlı evet",
     "baskan": "GPT",
     "baskan_model": "openai/gpt-oss-120b"
@@ -21,7 +21,7 @@
       "kim": "gemini",
       "ad": "Gemini",
       "rol": "Hevesli girişimci",
-      "metin": "Küçük e-ticaret satıcılarına ve butiklere temiz ikinci el koli ve ambalaj tedariki yapalım. Çevredeki marketlerden ücretsiz toplayacağımız sağlam kolileri, ambalaj masrafı artan yerel satıcılara sıfırının yarı fiyatına paket olarak satarız. Sıfır sermayeyle hemen bu hafta sonu mahalledeki satıcıları gezerek ilk siparişleri toplayabiliriz.",
+      "metin": "Kış kapıda, hobi bahçesi ve müstakil ev sahiplerinin en büyük derdi fidanlarını dondan korumak. Toptan agril don örtüsü alıp büzgülü pratik fidan koruma kılıfları hazırlayarak hobi bahçesi sahiplerine satabiliriz. İlanları telefondan yönetip siparişleri boş vakitlerimizde kargolayarak düşük sermayeyle hemen bu hafta başlarız.",
       "model": "gemini-flash-latest",
       "yedek": false
     },
@@ -29,7 +29,7 @@
       "kim": "gpt",
       "ad": "GPT",
       "rol": "Şüpheci yatırımcı",
-      "metin": "Bu iş modelinde gerçekten “sıfır sermaye” mi? Koli toplama, temizleme, taşıma ve depolama masrafları nasıl karşılanacak? Rekabetçi fiyatla satarken kâr marjı ne kadar olacak ve bu hafta sonu hedeflenen satış miktarı gerçekçi mi?",
+      "metin": "Bu modelde toplam maliyet ne kadar? Kâr marjı % kaç? Rekabetçi fiyatla satarken nakliye masrafı kim karşılayacak, siz mi? Dondan koruma gerçekten acil bir ihtiyaç mı, talep kanıtı var mı?",
       "model": "openai/gpt-oss-120b",
       "yedek": false
     },
@@ -37,7 +37,7 @@
       "kim": "esnaf",
       "ad": "Qwen",
       "rol": "Sahadaki esnaf",
-      "metin": "Koli toplamak bedava ama taşıma için çuval ve tramer lazım, bu da cebinden çıkar. Sende elinde üç beş koliyle pazar yapamazsın, nakliye masrafı kârını yutar.",
+      "metin": "Kardeşim, o örtüleri toptan alıp yeknesak kesmek zor. Her fidanın boyu, şekli farklı, müşteriye hazır çözümlü gitmezsin. Sen pazardaki tezgahın başında durup, \"evladım bu fidan için şu kadar örtü lazım\" deyip ona ayak uydur.",
       "model": "qwen/qwen3.8-27b",
       "yedek": false
     },
@@ -45,7 +45,7 @@
       "kim": "gemini",
       "ad": "Gemini",
       "rol": "Hevesli girişimci",
-      "metin": "Haklısın abi, o yüzden ilk başta araçla gezmek yerine sadece kendi caddemizdeki esnafa odaklanacağız. Butiklerin ihtiyacını WhatsApp'tan alıp, aynı sokaktaki eczane veya marketlerden sipariş kadar temiz koliyi el arabasıyla hemen taşıyacağız. Ne depo ne benzin masrafı çıkar; doğrudan mahalle içi mikro aracılıkla başlarız.",
+      "metin": "Haklısın usta, dikmekle uğraşmayıp işi 'kendin kes' kitine çevirelim. Rulo agril örtü, mandal ve jüt ipi tek pakette sunarız, müşteri ağacının boyuna göre kendi ayarlar. Kargo da hafif kutuda ucuza çıkar, bu hafta sonu ilk on paketi hazırlayıp ilanları açarız.",
       "model": "gemini-flash-latest",
       "yedek": false
     },
@@ -53,7 +53,7 @@
       "kim": "gpt",
       "ad": "GPT",
       "rol": "Şüpheci yatırımcı",
-      "metin": "Bu planın “sıfır maliyet” iddiası hâlâ belirsiz; temizlik, taşıma ve paketleme için ne kadar harcama yapacaksınız? İlk hafta kaç koli satmayı hedefliyorsunuz ve bu satıştan elde edeceğiniz net kâr yüzde kaç olacak? Rekabetçi fiyatla sürdürülebilir bir ölçekleme nasıl sağlanacak?",
+      "metin": "Talebin var mı? İlk 10 paket için toplam sipariş tutarı ve nakliye masrafını sen mi karşılayacaksın, yoksa alıcı ödeyecek mi? Kâr marjını %30‑%40 hedefliyorsan, her paketin maliyeti 30 TL’nin altında olmalı; aksi takdirde geri dönüş süresi 3‑4 ayı geçmez. Rekabet ve talep kanıtı olmadan bu haftaya yatırım yapmam mümkün değil.",
       "model": "openai/gpt-oss-120b",
       "yedek": false
     },
@@ -61,7 +61,7 @@
       "kim": "esnaf",
       "ad": "Qwen",
       "rol": "Sahadaki esnaf",
-      "metin": "Elinde üç koliyle kargoyu sen mi taşıyacaksın, yoksa kuryeye mi vereceksin? Bu işi büyütmek istiyorsan mahalle arası değil, semt pazarı gibi yoğun noktalara odaklan ki çuval başı kârın makul olsun.",
+      "metin": "Şüphecinin dediği doğru, boş yerden rulo alıp stok tutma. Önce mahalledeki beş bahçıvanı dolaş, \"şu örtüden var mı?\" diye sor. Birisi \"evet\" derse, o zaman toptancıdan sipariş ver, yoksa cebindeki parayı kurtar.",
       "model": "qwen/qwen3.8-27b",
       "yedek": false
     }
