@@ -1,0 +1,115 @@
+{
+  "id": "soru-2026-11-23-1707",
+  "tur": "soru",
+  "soru": "Bu projenin oluru var mı? PROJE: Kamerayla çalışan çok bölümlü rehber uygulaması. Telefonda tek uygulama, içinde ayrı sekmeler. Kullanıcı bölüm seçer, kamerayı bir şeye tutar, uygulama yazılı ya da sesli, birden çok dilde bilgi verir. Bölümler: 1) Gezi: Galata Kulesi gibi bir yere tutunca tarihçesini anlatır. 2) Alışveriş: ürün etiketini okur, ürün hakkında genel yorum yapar, mümkünse kullanıcı yorumlarını gösterir. 3) Gökyüzü: konum ve yöne göre oradaki gök cismini (Ay, gezegen, yıldız) söyler ve bilgi verir. 4) Futbol: maç, skor ve takım bilgileri. Amaç: her iş için ayrı uygulama açmak yerine hepsini tek uygulamada toplamak. Dikkat: her bölümün verisi farklı yerden gelir, bazıları ücretli ya da kısıtlı olabilir; kamera tek başına her şeyi bilemez (gökyüzü için konum ve yön gerekir). Plan: önce sadece Gezi bölümü yapılıp denenecek, çalışırsa Alışveriş, sonra Gökyüzü ve Futbol eklenecek. Rakipler kimler (Google Lens, Sky Guide vb.), bu uygulamanın onlardan farkı ne olur, ücretsiz yapılabilir mi, hangi bölüm gerçekten değerli?",
+  "tarih": "2026-11-23",
+  "olusturma": "2026-11-23T17:07+03:00",
+  "karar": {
+    "baslik": "Tek Modül ile Başla",
+    "tek_cumle": "Önce ücretsiz veriyle çalışan tek bir odaklı modül (gezi veya alışveriş) geliştirilip gelir modeli kanıtlanmalı.",
+    "secenekler": [
+      {
+        "ad": "Gezi Modülü",
+        "aciklama": "Wikipedia ve OpenStreetMap verileriyle sesli tarih‑tur oluşturulur, tur operatörlerinden yönlendirme ücreti alınır.",
+        "arti": "Turist akışı yüksek, içerik ücretsiz ve zengin.",
+        "eksi": "Gelir modeli belirsiz, tur operatörleri iş birliği zor."
+      },
+      {
+        "ad": "Alışveriş Modülü",
+        "aciklama": "Open Food Facts ve GS1 barkod API’leriyle ürün bilgisi, topluluk yorumları ve fiyat karşılaştırması sunulur, affiliate/ads üzerinden gelir elde edilir.",
+        "arti": "Doğrudan satın alma kararına etki eder, affiliate geliri kanıtlanmış bir model.",
+        "eksi": "Kullanıcı yorum topluluğu oluşturmak zaman alır, rekabet Yuka gibi güçlü oyuncularla yoğun."
+      },
+      {
+        "ad": "Kombine Gezi+Alışveriş Modülü",
+        "aciklama": "İki odaklı özellik aynı uygulamada birleştirilir; ilk aşamada gezi, ardından alışveriş eklenir.",
+        "arti": "Kullanıcıya tek uygulamada iki fayda sunarak çekicilik artar.",
+        "eksi": "İki farklı veri kaynağı ve iş modeli aynı anda yönetildiğinden geliştirme ve pazarlama maliyeti artar."
+      }
+    ],
+    "tavsiye": "Gezi Modülü önerilir; düşük geliştirme maliyeti, mevcut açık veri kaynakları ve turist talebi sayesinde hızlı prototip üretilebilir.",
+    "ilk_adim": "Wikipedia ve OpenStreetMap API’lerini entegre edip, Galata Kulesi‑etrafı için 5 duraklık sesli tur prototipini bir hafta içinde hazırlayın.",
+    "en_buyuk_risk": "Gelir modelinin (tur yönlendirme) beklenen dönüşü sağlamaması.",
+    "masanin_ortak_noktasi": "Sıfır bütçeyle yüksek API maliyetli modülleri (gökyüzü, futbol) baştan dışarıda bırakmak gerekir.",
+    "gerceklik_puani": 7,
+    "puan_gerekcesi": "Açık veriyle hızlı prototip yapılabilir, ancak gelir kanıtı olmadan ölçekleme riskli.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Google Lens varken her şeyi tek yere yığmak seni boğar; önünde Yuka gibi alışverişe odaklanmak ya da SmartGuide gibi geziye yönelmek şeklinde iki somut yol var. Ben kesinlikle gezi rehberini savunuyorum. Lens sadece kuru bilgi verirken, sen kamerayı Galata’ya tutana hikaye anlatan sesli bir tura dönüşebilirsin. Sıfır bütçeyle tek başına çıkarabileceğin en değerli ürün bu.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Gezi bölümü tek başına yeterli değil; Google Lens ve TripAdvisor’ın sesli turlarını birleştirince zaten ücretsiz ve kapsamlı. Yuka gibi tek odaklı bir alışveriş tarayıcısı daha net bir pazar ve daha yüksek dönüşüm oranı sağlar. Gökyüzü ve futbol gibi veri‑ağır modüller API maliyeti çıkarır, sıfır bütçeyle sürdürülebilir olmaz. İlk adım olarak sadece bir niş (ör. ürün etiketi‑okuma) seç, gelir modeli (affiliate/ads) kur, sonra genişlet.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Sıfır bütçeyle API maliyetine girmek, çarşıda kirasız dükkan tutup malı kendin üretmeye çalışmak gibidir, batarsın. Gezi bölümünde Google’ın bedava veren şeyiyle yarışma; bunun yerine İstanbul’un mahalle esnafının hikayeleri gibi yerel, niş ve duygusal içerik üret. Kullanıcıya \"şu kule 500 yaşında\" demek değil, \"buraların esnafı bu duvarlara nasıl baka\" demek lazım. Önce bu yerel dozu yüksek, rakiplerin oynaşmayacağı küçük bir bölgeyle başla.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Haklısın ama tek başına sokak sokak esnaf gezemezsin; bunun yerine AI asistanına Galata için yaşayan mahalle hikayeleri tarzında bir sesli rota yazdırırsın. VoiceMap gibi platformlar bu turları pahalıya satıyor, sen açık kaynak veriyi samimi bir dille sunarak fark yaratırsın. Üstelik barkod veya futbol API’si kovalamak yerine sadece kamera ve konum kullanarak sıfır maliyetle başlarsın. Tek semtte bu anlatıyı kanıtla, kullanıcıyı hemen yakalarsın.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Gezi bölümü tek başına düşük fark yaratır; Google Lens ve TripAdvisor zaten aynı veri kaynaklarını ücretsiz sunuyor, sesli ekleme maliyetli ve telif sorunları doğurabilir. Alışveriş bölümü için Yuka’nın modeli kanıtlanmış; barkod/etiket okuma API’leri (Open Food Facts, GS1) ücretsiz, ama kullanıcı yorumları ve fiyat karşılaştırması için affiliate gelir gerektirir. Gökyüzü ve futbol modülleri API ücretleri (Skyfield, Sportradar) olmadan çalışmaz; bu aşamada “sıfır bütçe” iddiası gerçekçi değil. Öncelikle ücretsiz bir veri setiyle (ör. OpenStreetMap + Wikipedia) yerel tarihçeyi sesli sunan tek bir niş (ör. İstanbul semt turu) yap, affiliate/ads üzerinden gelir modelini kanıtla, sonra diğer bölümleri ekle.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Google Lens zaten bu işi bedava yapıyor, sen ona meydan okuyamazsın. Alışverişte Open Food Facts gibi açık kaynakları kullan, ürün yorumu yerine kullanıcıların kendi fotoğraflarını yükleyeceği basit bir topluluk alanı kur. Futbol ve gökyüzü API'leri seni batırır, onları unut. Önce semt esnafının hikayelerini toplayan, samimi ve yerel olan tek bir gezi modülü yap, geliri reklamla değil, tur operatörlerine verdiğin yönlendirmeyle kazan.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Qwen haklı, futbolu ve gökyüzünü hemen çöpe atıyoruz; ama esnaf hikayeleri yerine yabancı turistin cebine oynayan sesli bir Gezi rehberiyle başlamalıyız. Kod bilmeden AI'ya Galata ve Tarihi Yarımada için Wikipedia ve Açık Harita tabanlı 10 duraklık sesli rota yazdırırsın. Lens sana kuru ansiklopedi verir, sen kulaklığı takana sokakları fısıldayan mini bir VoiceMap olursun. Sıfır maliyetle hemen hayata geçecek tek kazançlı yol budur.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Gezi modülünü sadece Wikipedia+OSM verisiyle sesli rota yapıp, tur operatörlerinden yönlendirme ücreti almak en düşük riskli yol. Yuka benzeri tek odaklı alışveriş modülü de ücretsiz Open Food Facts API’siyle çalışır, affiliate gelirle ölçeklenebilir; fakat önce bu nişi kanıtlamalısınız. Gökyüzü ve futbol API’leri yüksek maliyetli, sıfır bütçeyle eklenemez, bu aşamada tamamen dışarıda bırakılmalı. Bu iki modülle başlayıp, kullanıcı tabanı ve gelir akışı oluştuğunda diğer bölümleri eklemeyi öneriyorum.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "GPT, tur operatörüne yönlendirme ücreti almak hayal; onlar kendi el yordamıyla tur satar, senin uygulamanı kimse tutmaz. Sıfır bütçeyle en sağlam zemin, Open Food Facts verisiyle ürün yorumu topluluğu kurmak. İnsan zaten pazarda etiketi okuyup “bu iyi mi?” diye telefonuna bakıyor, sen o anı yakala. Gezi modülü Google Lens’i yenemez, ama alışverişte yerel esnafın “şu marka şu dükkanda daha ucuz” bilgisi rakiplerde yok.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": []
+}
