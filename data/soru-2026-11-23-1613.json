@@ -1,0 +1,115 @@
+{
+  "id": "soru-2026-11-23-1613",
+  "tur": "soru",
+  "soru": "Telefonda oynanabilen bir oyun tasarlamak istiyorum. Nasıl bir oyun olabilir? Hayalimdeki şey Tetris gibi bir şey ama bu sadece referans, Tetris olsun demiyorum. Kısa sürede oynanan, bağımlılık yapan, sade ve estetik bir oyun olsun.",
+  "tarih": "2026-11-23",
+  "olusturma": "2026-11-23T16:13+03:00",
+  "karar": {
+    "baslik": "DropMatch ile Başlamak",
+    "tek_cumle": "Tek döngülü, pastel renkli DropMatch prototipini hızlıca yapıp TestFlight ile 50 kişiye test ettikten sonra iyileştirmelere yönelin.",
+    "secenekler": [
+      {
+        "ad": "DropMatch (basit sürüm)",
+        "aciklama": "Tek renk blokları eşleştirip hızlıca patlatılan, tek parmakla oynanabilen bir döngü.",
+        "arti": "En düşük geliştirme süresi ve en az karmaşıklık.",
+        "eksi": "İlk ilgi süresi kısa, tek başına uzun vadeli bağlılık sağlamayabilir."
+      },
+      {
+        "ad": "Blockudoku benzeri ızgara bulmacası",
+        "aciklama": "Tetris‑Sudoku karışımı, blokları ızgaraya yerleştirerek satır/kolon temizleme.",
+        "arti": "Zaman baskısı yok, derin stratejik oynanış sunar.",
+        "eksi": "Çözüm süresi yavaş, bağımlılık potansiyeli düşük."
+      },
+      {
+        "ad": "Stack tarzı hızlı blok dizme",
+        "aciklama": "Saniyeler içinde blokları üst üste koyup dengesizliği yönetme, yüksek gerilimli aksiyon.",
+        "arti": "Anlık heyecan ve yüksek tekrar oynanabilirlik.",
+        "eksi": "Daha hassas dokunma algısı gerekir, UI/UX geliştirme maliyeti diğerlerine göre yüksek."
+      }
+    ],
+    "tavsiye": "DropMatch'in sade prototipi, sıfır bütçeyle en hızlı şekilde test edilebilir; ilk geri dönüşler net olduğunda özellik eklemeye karar verilir.",
+    "ilk_adim": "AI kodlayıcıyla tek döngüyü (blok düşüş‑eşleşme‑patlama) oluşturup, ücretsiz UI kit’i ve ses paketleriyle bir TestFlight build’i hazırlayın.",
+    "en_buyuk_risk": "Kullanıcıların ilk 50 kişiden sonra oyuna ilgi göstermemesi ve organik büyümenin gerçekleşmemesi.",
+    "masanin_ortak_noktasi": "Herkes, basit, tek parmakla oynanabilen ve düşük maliyetli bir prototipin önce test edilmesi gerektiği konusunda hemfikirdir.",
+    "gerceklik_puani": 7,
+    "puan_gerekcesi": "Sade bir prototip 2‑3 gün içinde yapılabilir, ancak uzun vadeli gelir modeli belirsizdir.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Bence yapay zekaya sıfırdan yazdırabileceğin iki harika seçenek var: Blockudoku gibi Tetris ile Sudoku’yu birleştiren ızgara bulmacası ya da Ketchapp’ın Stack oyunu gibi blok dizme mekaniği. İkisi de tek parmakla oynanır, pastel tonlarla çok estetik durur. Ben kesinlikle Blockudoku tarzını savunuyorum; süre baskısı olmadığı için insanı ekrana kitleyip tutuyor ve kod mimarisi yapay zeka için inanılmaz derecede uygulanabilir.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Blockudoku güzel ama bulmaca çözümleri yavaş, bağımlılık potansiyeli düşük; Stack ise tek bir hareketle sürekli artan gerilim sağlar. Ancak ikisinin de tek para kaynağı reklam, ki sıfır bütçeyle yüksek CPI gerekir. 15 saniyelik “çarpıcı bir başlangıç + her 30 saniyede bir mini‑görev” modeliyle, her oyun içi reklamı 0,03 $ kazanırsınız; 10 000 aktif kullanıcıda günlük 300 $ gelir elde edersiniz. Bu hedefe ulaşmak için sadece bir “görsel‑efekt‑paketi” (örnek: Unity Asset Store’dan “Minimalist UI Pack”) ve bir “AI‑code‑generator” (örnek: OpenAI Codex) gerekir; başka yatırım gerekmez. Bu senaryoyu onaylıyor musunuz?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Oğlum, 10 bin oyuncu bulmak İstanbul’da bile üç ay sürer, o matematiği bırak. Sıfır bütçede reklam gelirini hayal etme, önce insanları ekrana kilitle. Stack gibi saniyelik aksiyon tutar, ama puan tablosu ekle; “çok az kalmış” hissi yarat. Görseli sade tut, ses efekti ekleyip TestFlight’ta kuzenlerine göster. İlk elli indirme gelmeden para konuşulmaz.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Esnaf haklı, reklam hayalini geçip o ilk elli kişiyi hırslandıracak şeye odaklanalım. Suika Game mantığını Tetris ile birleştiren, yukarıdan düşen blokları eşleştirme oyunu yapalım. Yapay zekaya bu 2D birleşme mekaniğini yazdırmak, Stack'in milisaniyelik dokunma hassasiyetinden bile daha kolay. Üstelik blokların birleşme anındaki tatmin edici ses ve zincirleme reaksiyon, TikTok'ta sıfır lirayla organik patlama yakalar.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Blockudoku’un yavaş ilerleyişi, kullanıcı tutma süresini kısıtlar; Stack gibi anlık gerilim sunmayan bir modelle organik büyüme çok zor. Reklam gelirini sıfır bütçeyle 10 000 aktif kullanıcıdan beklemek gerçekçi değil, CPI çok yüksek ve kullanıcı edinim maliyeti sizde yok. Daha kısa bir “kaçış” oyunu düşünün: 5‑saniyelik bir “tap‑and‑drop” serisi, tek renk blokları hızlıca temizleyip puan çarpanı kazanma, TikTok’da kısa kliplerle viralleşebilir. AI kodlayıcıyı sadece bu tek döngüyü üretmek için kullanın, UI‑kit ve ücretsiz ses paketleriyle maliyeti sıfıra indirin.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Oğlum, elli kişiyi bile bulmadan \"TikTok organik patlaması\" hayali kurmak tehlikeli. Sokakta ürünün ellerine geçmeli. Şu anki \"birleşme\" fikrinin tek avantajı basit olması; bu haliyle kal. Kuzenlere TestFlight'ta göster, \"üç el daha oyna\" dedirtiyorsa iş tutar. Para ve viral strateji, ilk elli kişinin geri dönüşüne bağlı; önce o güveni inşa et, gerisi konuşur.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Esnaf haklı, hayalleri bırakıp hemen sahaya inelim. Kesin kararımız Suika ve Tetris kırması o dikey birleşme mekaniği olsun; yapay zekaya sıfır fizikle, sadece renk ve sayı eşleşmesi olarak yazdırmak çok kolay. Oyunun adı da şimdilik DropMatch kalsın, pastel renklerle on saniyede bir tatmin hissi verelim. Bugün hemen yapay zekaya bu çekirdek döngüyü yazdırıp TestFlight linkini çevrene dağıtıyorsun, işe buradan başlıyoruz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "DropMatch’in tek renk eşleşmesi çok basit; kullanıcılar çabuk sıkılır ve reklam geliri düşük kalır. Daha iyi bir yol, 5‑saniyelik “tap‑and‑slide” bir mod eklemek: birden fazla renk bloklarını sürükleyip zincirleme patlatma, puan çarpanı ve günlük mini‑görevler. AI‑kodlayıcıyla bu döngüyü iki‑üç gün içinde üretip, ücretsiz ses ve UI kitleriyle paketleyebiliriz. İlk 50 test oyuncusundan geri dönüş alındıktan sonra, TikTok klipleriyle organik büyümeye odaklanırım.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Oğlum, iki-üç günde patlatma ve görev ekleme derdi yapma, oyun bozulur. Sıfır bütçede karmaşıklık ölüm fermanıdır; tek döngüye sadık kalın. DropMatch'in sade haliyle işe koyulun, kuzenlerin \"bir el daha\" diyorsa asgari geçici isabeti bulmuşsunuz demektir. Fazla özellik eklemek kodu çürütür, TestFlight'a yama atma derdine girersiniz ki bu işi bitirir.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": []
+}

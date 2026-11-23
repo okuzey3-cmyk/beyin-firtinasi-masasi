@@ -1,6 +1,16 @@
 {
   "gunler": [
     {
+      "id": "soru-2026-11-23-1613",
+      "tur": "soru",
+      "tarih": "2026-11-23",
+      "olusturma": "2026-11-23T16:13+03:00",
+      "baslik": "DropMatch ile Başlamak",
+      "tek_cumle": "Tek döngülü, pastel renkli DropMatch prototipini hızlıca yapıp TestFlight ile 50 kişiye test ettikten sonra iyileştirmelere yönelin.",
+      "gerceklik_puani": 7,
+      "karar": "Şartlı evet"
+    },
+    {
       "tarih": "2026-11-23",
       "baslik": "Kendi Kendine Kes Fidan Koruma Kiti",
       "tek_cumle": "Hobi bahçesi sahiplerine, farklı boylardaki fidanları dondan korumak için rulo örtü, mandal ve jüt ipi içeren kendin yap kitleri satmak.",
@@ -15,5 +25,5 @@
       "karar": "Şartlı evet"
     }
   ],
-  "guncelleme": "2026-11-23T12:40+03:00"
+  "guncelleme": "2026-11-23T16:13+03:00"
 }
