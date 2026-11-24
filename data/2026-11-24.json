@@ -1,0 +1,86 @@
+{
+  "id": "2026-11-24",
+  "tur": "fikir",
+  "soru": "",
+  "tarih": "2026-11-24",
+  "olusturma": "2026-11-24T17:44+03:00",
+  "karar": {
+    "baslik": "Bebek Arabası Buharlı Temizliği",
+    "tek_cumle": "İkinci el bebek arabası ve oto koltuğu için buharlı derin temizlik hizmeti sunarak satıcı ve alıcıları bir araya getirmek.",
+    "nasil_para_kazanir": "Müşteriden parça başı temizlik ücreti alınır; kiralama, su ve deterjan masrafları düşüldükten sonra net kâr sağlanır.",
+    "kime_satilir": "İkinci el bebek arabası/oto koltuğu ilanı veren satıcılar ve alıcı ebeveynler.",
+    "baslangic_sermayesi": "1.500 - 4.000 TL",
+    "ilk_adim": "Hafta sonu bir buhar makinesi kiralayarak iki ilan sitesinde üç satıcıyla iletişime geçip ilk temizlik hizmetini sunmak.",
+    "en_buyuk_risk": "Müşteri talebinin düşük olması ve kiralama maliyetinin hızlı artması.",
+    "masanin_ortak_noktasi": "İlk aşamada düşük sermayeyle test yapma ihtiyacı ortak kabul edildi.",
+    "gerceklik_puani": 5,
+    "puan_gerekcesi": "Talep belirsiz, maliyetler yüksek; kısa vadede kârlılık şüpheli.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Aklımda ikinci el bebek arabası ve oto koltuğu için buharlı derin temizlik hizmeti var. Uygun fiyatlı bir buhar makinesiyle vardiya dışı saatlerde yapıp, ilan sitelerindeki satıcılara veya ebeveynlere parça başı temizlik satacağız. Bu hafta ufak bir cihaz ve bebeklere uygun deterjanla hemen ilk müşteriyi bulup başlayabiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu modelde temizlik maliyeti ve zaman harcaması ne kadar? Müşteri başına net karınızı ve ilk ayda kaç sipariş hedeflediğinizi net bir rakamla gösterin. Ayrıca, benzin, su ve deterjan gibi değişken giderleri de dahil edip, geri dönüş süresini hesapladınız mı?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "O rakamları kağıt üstünde kurma, ben çarşıda gördüm. Buhar makinesi pahalı, elektrik ve su masrafı seni yorar. Müşteri de o kadar sık gelmez, ilk ayda beş iş bulamazsan ay sonu zararda biter.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Makinayı hemen satın almak zorunda değiliz, hafta sonları günlük kiralayarak sıfır riskle başlarız. İkinci el sitelerindeki satıcılara ulaşıp arabayı temizleyip ilan fotoğrafını çekmeyi teklif ederiz; sekiz yüz liradan dört işte tüm masraf fazlasıyla çıkar. Böylece talebi cebimizden büyük para çıkmadan bu hafta hemen test etmiş oluruz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Müşteri başına net kâr 800 ₺, ama kiralama, su, deterjan ve taşıma masrafları toplamda 600 ₺; haftada 4 iş için 800 ₺ gelir, 200 ₺ kâr, ama 1‑2 ay içinde kiralama maliyeti artar, ölçeklenebilirlik yok. İlk ay 4‑5 iş hedefi gerçekçi, fakat geri dönüş süresi 3‑4 ay olur. Bu riskli, başka bir düşük maliyetli temizlik modeli düşünmeliyiz.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Çatı katındaki o 200 liraya bakma; gerçek para, o kiracıyı bir daha arama telaşından kurtaracak yıllık 15 bin liralık abonelikte. Buharla uğraşma, sadece buzdolabı ve çamaşır makinesi arkasını temizleyip onarım yap. Bu hafta üç apartmana gir, kapıcıyla anla, kapı kapı dolaşmadan müşteri avla.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": [
+    "Ticaret Bakanı Ömer BOLAT, TESKOMB Esnaf Kooperatifleri Delegeler Toplantısı'nda konuştu - T.C. Ticaret Bakanlığı",
+    "KOBİ’lere 7 milyon liraya kadar faizsiz ‘dönüşüm kredisi’ - Ekonomim",
+    "KOSGEB’DEN SEL VE TAŞKIN FELAKETLERİNDEN ETKİLENEN KOBİ’LERE FAİZ/KÂR PAYI DESTEĞİ - Kosgeb",
+    "BÜYÜKŞEHİRDEN DİJİTAL PAZARLAMA VE E-TİCARET EĞİTİMİ - Ordu Büyükşehir Belediyesi",
+    "Ticaret Bakanlığı e-ticaret platformlarını yasaklı ürünlerin yeniden satışı konusunda uyardı - Anadolu Ajansı",
+    "Aydın Esnaf ve Sanatkârlar Odaları Birliği Başkanı Sayın Muhammet Ali Künkcü ve beraberindeki yönetim kurulu üyeleri, İl Müdürümüz İlkay Türkoğlu’nu makamında ziyaret - Aile ve Sosyal Hizmetler Bakanlığı",
+    "Takipteki kredilerin yüzde 60’ı KOBİ’lerde! - Ekonomi Gazetesi",
+    "İş Bankası ve EBRD’den Yeşil Dönüşüm ve Genç KOBİ’lere 151,5 Milyon Euro - Fintechtime",
+    "E - ticaret pazarında 2027 için 8.5 trilyon TL beklentisi - Foreks.com",
+    "İş Bankası'na yeşil dönüşüm ve genç KOBİ'ler için 151,5 milyon euroluk kaynak - Gazete Oksijen",
+    "KOBİ'lere 3 milyar liralık yeşil dönüşüm desteği - Bloomberght",
+    "Gürsel Tekin'in Konya'daki esnaf ziyareti sırasında ayağı kırıldı - Anka Haber"
+  ]
+}
