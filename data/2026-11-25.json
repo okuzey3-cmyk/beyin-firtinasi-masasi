@@ -1,0 +1,86 @@
+{
+  "id": "2026-11-25",
+  "tur": "fikir",
+  "soru": "",
+  "tarih": "2026-11-25",
+  "olusturma": "2026-11-25T17:09+03:00",
+  "karar": {
+    "baslik": "Mobil Far Temizliği",
+    "tek_cumle": "Portatif buharlı setle apartman kapısında hızlı ve uygun fiyatlı far temizleme hizmeti sunmak.",
+    "nasil_para_kazanir": "Her araçtan sabit bir ücret alınır; düşük sabit maliyet ve yüksek işlem hızı sayesinde kâr marjı sağlanır.",
+    "kime_satilir": "Site ve apartman sakinleri, araçlarını satmak ya da muayeneden geçiremeyen kişiler.",
+    "baslangic_sermayesi": "2.000 - 3.500 TL",
+    "ilk_adim": "İlk hafta sonu için 3 potansiyel müşteriye ulaşmak amacıyla site yöneticileriyle iletişime geçip randevu alın ve ön‑sonrası video çekimi hazırlayın.",
+    "en_buyuk_risk": "Araç hasarı ve kimyasal atık sorumluluğu nedeniyle yasal izin ve sigorta eksikliği.",
+    "masanin_ortak_noktasi": "Herkes ekipman maliyetinin düşük olduğunu ve işin hızlı başlanabileceğini kabul ediyor.",
+    "gerceklik_puani": 5,
+    "puan_gerekcesi": "Düşük sermaye ve talep var, fakat yasal risk ve sürdürülebilir müşteri akışı belirsiz.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "İki bin liralık portatif buharlı setle, muayeneden geçemeyen ya da aracını satacak kişilere kapısında mobil far temizleme hizmeti sunalım. Vardiya çıkışlarında ve hafta sonları sitelerdeki araç sahiplerine ulaşıp yarım saatte sararmış farları pırıl pırıl yapacağız. Dükkan masrafı yok, işlem başı peşin kazandırır ve hemen bu hafta başlayabiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu modelde ekip, temizlik kimyası ve ekipman maliyetini kim karşılayacak? Tek seferlik 2 000 TL yatırımın geri dönüş süresi ve haftalık işlem adedi ne kadar? Rakip mobil far temizleyicileri var; fark yaratmak için hangi izinler ve sigortalar gerekiyor?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Araba yıkama lisansı gibi özel bir izin falan lazım değil, işte tek risk araca dokunmak. Kayıt defterini tut, vardiya çıkışı apartman kapısında on parmak kesme şartıyla işe başla.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Esnaf abim haklı, dükkânsız yapıldığı için büyük izinlere gerek yok. Zaten aldığımız ilk kimyasal set en az on beş araca yetiyor, yani ilk hafta sonu üç araç yapsak masrafımız tamamen çıkıyor. Kendi aracımızda öncesi-sonrası videosu çekip site gruplarına atarak randevuları hemen bu hafta toplamaya başlarız.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Eğer 2 000 TL'lik ekipman bir hafta içinde 3 araçla maliyeti karşılayacaksa, kâr marjı ne kadar ve müşteri başına ortalama gelir? Tekrar eden müşteriler ve yasal sorumluluk (araç hasarı, kimyasal atık) nasıl yönetilecek? Bu riskleri net bir planla kanıtlayamazsanız yatırım tutmayacağım.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Yazılı onay almadan araca el koyma, kuru kuru kimyasal dökme. Sigortanın kapsamı var, dökümlü tutanak tutarsan sorun çıkmaz.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": [
+    "Ticaret Bakanı Ömer BOLAT, TESKOMB Esnaf Kooperatifleri Delegeler Toplantısı'nda konuştu - T.C. Ticaret Bakanlığı",
+    "KOBİ’lere 7 milyon liraya kadar faizsiz ‘dönüşüm kredisi’ - Ekonomim",
+    "Ticaret Bakanlığı e-ticaret platformlarını yasaklı ürünlerin yeniden satışı konusunda uyardı - Anadolu Ajansı",
+    "BÜYÜKŞEHİRDEN DİJİTAL PAZARLAMA VE E-TİCARET EĞİTİMİ - Ordu Büyükşehir Belediyesi",
+    "Türkiye ile Bangladeş arasında yükseköğretimde yeni iş birliği hedefi - YÖK",
+    "Takipteki kredilerin yüzde 60’ı KOBİ’lerde! - Ekonomi Gazetesi",
+    "İş Bankası ve EBRD’den Yeşil Dönüşüm ve Genç KOBİ’lere 151,5 Milyon Euro - Fintechtime",
+    "E - ticaret pazarında 2027 için 8.5 trilyon TL beklentisi - Foreks.com",
+    "Gürsel Tekin’e dert yanan esnaf: “Esnaf olarak bu pahalılıktan hiç memnun değilim” - Anka Haber",
+    "İş Bankası'na yeşil dönüşüm ve genç KOBİ'ler için 151,5 milyon euroluk kaynak - Gazete Oksijen",
+    "Türkiye’nin Ilk E-Ticaret Standartları Endeksi Açıklandı: Tüketicilerin Birinci önceliği Güven - Marketing Türkiye",
+    "Ticaret Bakanı Ömer Bolat, Kadın Kooperatiflerini E-Ticaret Yoluyla Destekleme Protokolü Tanıtım Töreni'nde Konuştu - T.C. Ticaret Bakanlığı"
+  ]
+}
