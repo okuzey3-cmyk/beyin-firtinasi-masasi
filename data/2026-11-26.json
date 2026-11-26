@@ -1,0 +1,86 @@
+{
+  "id": "2026-11-26",
+  "tur": "fikir",
+  "soru": "",
+  "tarih": "2026-11-26",
+  "olusturma": "2026-11-26T16:46+03:00",
+  "karar": {
+    "baslik": "Kış Aksesuar Seti Satışı",
+    "tek_cumle": "Kış çalışanlarına doğrudan elden satılan 30 adet polar boyunluk, dokunmatik eldiven ve termal çorap seti.",
+    "nasil_para_kazanir": "Her setten %30‑40 kar marjı elde edilir; nakit satış sayesinde anında gelir sağlanır.",
+    "kime_satilir": "Sanayi bölgelerindeki fabrika çalışanları ve vardiyalı işçiler hedeflenir.",
+    "baslangic_sermayesi": "3.000 - 5.000 TL",
+    "ilk_adim": "Bu hafta cumartesi pazarına giderek setleri elden tanıtıp ilk müşterileri alın.",
+    "en_buyuk_risk": "Stok devir süresi uzarsa kar marjı eriyebilir.",
+    "masanin_ortak_noktasi": "Herkes nakit satışın riskleri azaltacağını kabul ediyor.",
+    "gerceklik_puani": 5,
+    "puan_gerekcesi": "Küçük ölçekli deneme mümkün ama talep ve rekabet belirsiz.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Kış sezonunda toptan aldığımız polar boyunluk, dokunmatik ekran eldiveni ve termal çorapları pratik bir kış aksesuar seti yaparak sanayi bölgelerinde ve internette satabiliriz. Toptancıdan ucuza kapatıp paketleyerek doğrudan çalışanlara satar, set başına temiz nakit kâr kazanırız. Bu hafta toptan sitelerden 10 bin liraya ilk partiyi sipariş edebiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu fikirde maliyet 10 000 TL, ama toptan alımda indirim ne kadar, perakende fiyatı ne olacak, rakipler aynı seti zaten büyük marketlerde satıyor mu? Kış sonuna kadar satmayı hedefliyorsunuz, stok devir süresi ve geri dönüş süresi net mi? Şu anki enerji‑tasarruf ve yeşil dönüşüm desteklerinden faydalanabilecek bir alternatif var mı?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Abi, markette üç tane polar boyunluk yanyana duruyor, senin setini kim alacak? Bir de evde paketleme yapamazsın, gece vardiyasından sonra kargoluk birikirse delirirsin. Sokaktaki tezgahla yarışamazsın, düşün.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Haklısın abi, kargo ve internetle hiç uğraşmayalım o zaman. Bütçeyi 3 bin liraya çekip sadece 25-30 setle başlarız; fabrikada servise binen arkadaşlara ve sanayideki ustalara elden, peşin satarız. Sabah ayazında işe giden adam market aramaz, ayağına gelen sıcak seti hemen nakit alır.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Maliyet 3 000 TL ve 30 setle sınırlı, ama birim kar %30‑40 mı? Elden satışta nakit akışı hızlı olur, fakat stok devir süresi bir hafta bile uzarsa kâr erir; destek programlarından ek finansman alabilir misiniz? Şimdiye göre risk yüksek, yatırım yapmam.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "30 setle fabrikaya gitmek zanaatkarın işi, internetle değil. Nakit alırsan kârın cebinize döner, riski sıfırlarsın. Bu hafta cumartesi pazarına gidin, müşteriye dokunarak başlayın.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": [
+    "Ticaret Bakanı Ömer BOLAT, TESKOMB Esnaf Kooperatifleri Delegeler Toplantısı'nda konuştu - T.C. Ticaret Bakanlığı",
+    "Samsun’da Esnaf ve Sanatkârlar Dünyası İyilik Var Platformuyla Buluştu - Aile ve Sosyal Hizmetler Bakanlığı",
+    "BÜYÜKŞEHİRDEN DİJİTAL PAZARLAMA VE E-TİCARET EĞİTİMİ - Ordu Büyükşehir Belediyesi",
+    "Türkiye ile Bangladeş arasında yükseköğretimde yeni iş birliği hedefi - YÖK",
+    "KOBİ'lerin Türkiye'nin enerji dönüşümü hedeflerine uyumu için destek talebi - Anadolu Ajansı",
+    "KOBİ’lere soluk aldıracak yeni yapılandırma şart - Ekonomi Gazetesi",
+    "İş Bankası ve EBRD’den Yeşil Dönüşüm ve Genç KOBİ’lere 151,5 Milyon Euro - Fintechtime",
+    "Fatih Erbakan Safranbolu'da esnaf ziyaret etti: \"Esnaf kan ağlıyor\" - Anka Haber",
+    "İtalyan Deri Ürünleri Sektörü Forumu: lüks ve KOBİ’lerin uluslararasılaşma stratejileri için bir dönüm noktası - FashionNetwork France",
+    "İş Bankası'na yeşil dönüşüm ve genç KOBİ'ler için 151,5 milyon euroluk kaynak - Gazete Oksijen",
+    "Türkiye’nin Ilk E-Ticaret Standartları Endeksi Açıklandı: Tüketicilerin Birinci önceliği Güven - Marketing Türkiye",
+    "Savunmadan enerjiye milyarlık imzalar: Borsada 30 şirketten yeni iş açıklaması - CNBC-e"
+  ]
+}

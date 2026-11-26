@@ -1,6 +1,16 @@
 {
   "gunler": [
     {
+      "id": "2026-11-26",
+      "tur": "fikir",
+      "tarih": "2026-11-26",
+      "olusturma": "2026-11-26T16:46+03:00",
+      "baslik": "Kış Aksesuar Seti Satışı",
+      "tek_cumle": "Kış çalışanlarına doğrudan elden satılan 30 adet polar boyunluk, dokunmatik eldiven ve termal çorap seti.",
+      "gerceklik_puani": 5,
+      "karar": "Şartlı evet"
+    },
+    {
       "id": "2026-11-25",
       "tur": "fikir",
       "tarih": "2026-11-25",
@@ -55,5 +65,5 @@
       "karar": "Şartlı evet"
     }
   ],
-  "guncelleme": "2026-11-25T17:09+03:00"
+  "guncelleme": "2026-11-26T16:46+03:00"
 }
