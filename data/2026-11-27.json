@@ -1,0 +1,86 @@
+{
+  "id": "2026-11-27",
+  "tur": "fikir",
+  "soru": "",
+  "tarih": "2026-11-27",
+  "olusturma": "2026-11-27T16:44+03:00",
+  "karar": {
+    "baslik": "Kamp Ekipmanı Kiralama",
+    "tek_cumle": "Doğa gezilerine çıkanlara, depozitolu ve kimlik teyidiyle kamp ekipmanı kiralama hizmeti sunulur.",
+    "nasil_para_kazanir": "Kiralamadan alınan ücret ve depozitodan kesilen temizlik/hasar ücretiyle kar elde edilir.",
+    "kime_satilir": "Hafta sonu doğa yürüyüşü ve kamp yapmayı planlayan şehir sakinleri hedeflenir.",
+    "baslangic_sermayesi": "15.000 - 20.000 TL",
+    "ilk_adim": "Mahalledeki üç esnaftan ekipman temin edilip, ilk seti bu hafta sonu elden teslim ederek pilot deneme yapılır.",
+    "en_buyuk_risk": "Ekipmanın kayıp veya hasar riski ve depozito tahsilatının geri dönüş süresi.",
+    "masanin_ortak_noktasi": "Yerel güven ve hızlı elden teslimat, işin temel başarı faktörüdür.",
+    "gerceklik_puani": 6,
+    "puan_gerekcesi": "Başlangıç maliyeti düşük, ancak risk ve kâr marjı belirsiz.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Yılda bir iki kez doğaya çıkanlara yönelik hazır kamp ekipmanı kiralama hizmeti başlatalım. Letgo ve Instagram üzerinden birkaç çadır, mat ve sandalye setini depozitolu kiralayarak hafta sonu başına nakit kazanırız. Teslimatları vardiya çıkışında elden yapar, rezervasyonları tamamen telefondan yönetiriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Bu modelde depozito ve teslimat risklerini nasıl minimize edeceksiniz, kayıp ya da hasar durumunda kâr marjınız ne kadar? Rekabeti kim oluşturuyor, özellikle büyük outdoor mağazalarının aynı hizmeti sunması durumunda farkınız ne? Başlangıç maliyetini 25 000 TL’nin altında tutacak somut bir bütçe planı var mı?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Depozitolu işte hasar riski hep esnafta kalır, büyük mağazalar da bu yüzden o işe girmiyor. Senin asıl sermayen mal değil, mahalledeki güven ve hızlı teslimat. O yüzden ilk adımı bu hafta en yakın çarşıdaki üç esnafa sorarak at.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Haklısın, büyük mağazalar bu detaylarla uğraşmaz ama biz yerel güvenle çözeriz. Hasar riskini teslimatta basit bir sözleşme ve kimlik teyidiyle kontrol altına alırız. İlk etapta 20 bin liraya sadece iki tam set alıp hafta sonları elden teslim ederek hemen başlayabiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Depozito ve kimlik kontrolü tek başına yeterli değil; hasar ve kayıp durumunda geri dönüş süresi ve maliyet hesabı eksik. Kâr marjını %15‑20 % tutmak istiyorsanız, ekipman amortismanı, temizlik ve taşıma giderlerini net bir tabloyla gösterin. Eğer bu detayları haftaya içinde sunamazsanız, yatırım yapmam.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Lütfen, kâğıt üstünde %15 kâr hesaplaması sokakta tutmaz. Gerçek kâr, müşteri ikinci hafta tekrar geldiğinde ve seni komşusuna tavsiye ettiğinde çıkar. Şu an bu hafta sonu bir seti elden teslim et, fotoğraflarını çek, gerisini pazarın konuşsun.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": [
+    "ASBÜ Araştırma ve Sosyal Girişimcilik Ekosistem Modeli Ülkemizde Tanıtılıyor! - Ankara Sosyal Bilimler Üniversitesi",
+    "Türkiye ile Bangladeş arasında yükseköğretimde yeni iş birliği hedefi - YÖK",
+    "Kavak’ta Bağımlılıkla Mücadele İçin Esnaf Ziyaretleri Gerçekleştirildi - Aile ve Sosyal Hizmetler Bakanlığı",
+    "KOBİ’lere soluk aldıracak yeni yapılandırma şart - Ekonomi Gazetesi",
+    "Fon krizi KOBİ'leri fena vurmaya başladı - Ekonomim",
+    "Fatih Erbakan Safranbolu'da esnaf ziyaret etti: \"Esnaf kan ağlıyor\" - Anka Haber",
+    "Hatay MKÜ’de Liderlik ve Girişimcilik Zirvesi Düzenlendi - Hatay Söz Gazetesi",
+    "Yeni Parti Genel Başkanı Özgür Özel, Gaziantep'te esnaf ziyaretinde bulundu - Habertürk",
+    "Özen’den Hekimoğlu’na Başarı Dileği Edirne Esnaf ve Sanatkarları Odaları Birliği Başkanı Harun Özen, Edirne Ticaret ve Sanayi Odası Meclis Başkanı Tolga Hekimoğlu’na hayırlı olsun ziyaretinde bulundu. Ziyarette Hekimoğlu’na yeni görevinde başarı dilekle - Instagram",
+    "İş dünyasından zincir market ve e-ticaret tepkisi: Esnaf penguenler gibi azalıyor! - Tek Referans",
+    "Bir Esnaf, Bir Belediye Başkanı, Bir Diyarbakır Beyefendisi… - Tigris Haber",
+    "Kaymakam Nalbant'tan Esnaf Ziyareti - Edirne Haber Gazetesi"
+  ]
+}
