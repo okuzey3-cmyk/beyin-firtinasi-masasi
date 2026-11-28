@@ -1,0 +1,86 @@
+{
+  "id": "2026-11-28",
+  "tur": "fikir",
+  "soru": "",
+  "tarih": "2026-11-28",
+  "olusturma": "2026-11-28T15:53+03:00",
+  "karar": {
+    "baslik": "Acil Futbol Oyuncu Eşleştirme",
+    "tek_cumle": "Maç iptallerini önlemek için sahaların telefon üzerinden acil oyuncu ve kaleci bulmasını sağlayan bir ara hizmet.",
+    "nasil_para_kazanir": "İşletmeciden sabit bir aracılık ücreti alınır; komisyon yerine önceden belirlenmiş bir ücret alınır.",
+    "kime_satilir": "Yerel halı saha işletmecileri ve acil oyuncu ihtiyacı olan takımlar.",
+    "baslangic_sermayesi": "0 - 2.000 TL",
+    "ilk_adim": "Bu hafta üç sahaya gidip işletmecilerle birebir görüşerek sabit ücretli hizmet teklifini sunmak.",
+    "en_buyuk_risk": "Yaralanma ve sorumluluk risklerinin sigorta olmadan işletmeciye devredilmesi.",
+    "masanin_ortak_noktasi": "Hızlı bir çözüm için doğrudan telefon ve yüz yüze temasın daha etkili olduğu.",
+    "gerceklik_puani": 4,
+    "puan_gerekcesi": "Sıfır sermaye ve düşük yasal riskler var ama sürdürülebilir gelir ve sorumluluk belirsizliği yüksek.",
+    "karar": "Şartlı evet",
+    "baskan": "GPT",
+    "baskan_model": "openai/gpt-oss-120b"
+  },
+  "tartisma": [
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Halı saha maçlarında son dakika adam eksilmesini çözen bir acil oyuncu ve kaleci eşleştirme ağı kuralım. Çevredeki sahalarla görüşüp panolarına duyuru asarak kuracağımız WhatsApp havuzu üzerinden, maça çıkan her oyuncudan küçük bir komisyon alacağız. Sıfır sermayeyle hemen bu hafta sahaları gezerek doğrudan telefondan başlatabiliriz.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Komisyon ne kadar olacak, sahalar bu modeli nasıl kabul edecek, rakip uygulama var mı? İlk haftada kaç saha ve oyuncuya ulaşmayı hedefliyorsunuz, maliyet ve yasal izinler net mi? Şimdi harekete geçmek için somut bir pazarlama planınız var mı?",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Bunları yapamazsın, maç günü kimsenin telefonu elinde olmaz. Sahadaki adam saate bakar, anında adam ister, uygulamaya girmez. Gel bu hafta sen o sahaya git, en basitini yap.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    },
+    {
+      "kim": "gemini",
+      "ad": "Gemini",
+      "rol": "Hevesli girişimci",
+      "metin": "Haklısın, uygulama değil zaten doğrudan işletmecinin cebine acil hat kuruyoruz. Bu hafta üç sahaya gidip işletmeciye maç iptal olmasın diye nöbetçi kaleci ve oyuncu sağlayacağımı söyleyeceğim. Sahasını kurtardığım için maç başı oyunculardan değil, iptalden kurtulan işletmeciden sabit bir aracılık ücreti alarak süreci telefondan yöneteceğim.",
+      "model": "gemini-flash-latest",
+      "yedek": false
+    },
+    {
+      "kim": "gpt",
+      "ad": "GPT",
+      "rol": "Şüpheci yatırımcı",
+      "metin": "Rakip var mı, yani aynı bölgede başka bir “acil oyuncu” hizmeti? Sabit aracılık ücretini işletmeciden alırken yüzde kaç tutacaksınız, bu tutar sahaların kar marjına uygun mu? İlk hafta üç sahaya gidip bir kez deneme yaparsanız, sürdürülebilir gelir elde edebileceğinizi kanıtlayabilir misiniz? Yasal izinler ve olası sorumluluk (yaralanma vb.) net mi? Bu sorulara net yanıt olmadan sermaye ayırmam mümkün değil.",
+      "model": "openai/gpt-oss-120b",
+      "yedek": false
+    },
+    {
+      "kim": "esnaf",
+      "ad": "Qwen",
+      "rol": "Sahadaki esnaf",
+      "metin": "Kardeşim, yaralanma derdiyle başın ağrır, işletmeci de bu riski üstlenmez. Sen sadece çevredeki formda insanları tanıdığın için aracı ol, asla sigorta yapma. Hafta sonu iki sahaya git, işletmeciyle çay içerek niyetini anla, somut para gelmeden bu iş biter.",
+      "model": "qwen/qwen3.8-27b",
+      "yedek": false
+    }
+  ],
+  "gundem": [
+    "75 meslek lisesinde girişimcilik eğitimi başladı (Şanlıurfa) - İletişim Başkanlığı",
+    "Aile ve Sosyal Hizmetler Bakanlığı ile Sanayi ve Teknoloji Bakanlığı İş Birliğinde Çocuklar ve Ailelerine Yönelik Teknoloji ve Girişimcilik Buluşmaları - Aile ve Sosyal Hizmetler Bakanlığı",
+    "Bahar Şamhili Tanju ile: Gurvita’nın Doğuşu ve Girişimcilik Üzerine - theMagger",
+    "Gaziantepli trikocular, yeni iş birlikleri için Halep’te - Ekonomi Gazetesi",
+    "Tarım, Turizm, Sanayi Hibe Programları ve Girişimcilik Projesi başvurularının süresi uzatıldı - Kıbrıs Postası",
+    "Lalapaşa Kaymakamı Nalbant'tan esnaf ziyareti Lalapaşa Kaymakamı Furkan Recep Nalbant, ilçede faaliyet gösteren esnafı ziyaret etti. Kaymakamlıktan yapılan açıklamaya göre Nalbant, ziyaretlerinde esnaf ve vatandaşlarla bir araya gelerek talep, görüş ve - Instagram",
+    "E-ticaret devinde Black Friday krizi: Çalışanlar greve gidiyor - CNBC-e",
+    "Kaymakam Nalbant'tan Esnaf Ziyareti - Edirne Haber Gazetesi",
+    "AKÜ’de girişimcilik deneyimleri öğrencilerle paylaşıldı - Odakgazetesi",
+    "Bülbüloğlu Vinç’ten (BVSAN) 1,1 milyon dolarlık yeni iş anlaşması - Paratic Haber",
+    "Çalıştığı tamir atölyesindeki molalarında esnaf ve müşteriler için şarkı söylüyor - gdh dijital",
+    "Gümüşhane'ye Ne Yapılırsa Esnaf Yeniden Kazanır? GESOB'dan Üç Kritik Öneri - Gümüşkoza Gazetesi"
+  ]
+}

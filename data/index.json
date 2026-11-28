@@ -1,6 +1,16 @@
 {
   "gunler": [
     {
+      "id": "2026-11-28",
+      "tur": "fikir",
+      "tarih": "2026-11-28",
+      "olusturma": "2026-11-28T15:53+03:00",
+      "baslik": "Acil Futbol Oyuncu Eşleştirme",
+      "tek_cumle": "Maç iptallerini önlemek için sahaların telefon üzerinden acil oyuncu ve kaleci bulmasını sağlayan bir ara hizmet.",
+      "gerceklik_puani": 4,
+      "karar": "Şartlı evet"
+    },
+    {
       "id": "2026-11-27",
       "tur": "fikir",
       "tarih": "2026-11-27",
@@ -75,5 +85,5 @@
       "karar": "Şartlı evet"
     }
   ],
-  "guncelleme": "2026-11-27T16:44+03:00"
+  "guncelleme": "2026-11-28T15:53+03:00"
 }
